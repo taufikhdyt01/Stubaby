@@ -19,7 +19,7 @@
 # Getting Started
 
 ## Prerequisites
-You will need the following to run si-OBE:
+You will need the following to run StuBaby:
 - PHP >= 8.0.2
 - Composer
 - Node.js
