@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://github.com/taufikhdyt01/stubaby">
-    <img src="public/img/StuBaby.png" width="400" alt="Logo">
+    <h1 align="center" style="color: #4B47FF">StuBaby</h1>
   </a>
   <p align="center">
     Stunting Education System for Postpartum Mothers Based on a Website
