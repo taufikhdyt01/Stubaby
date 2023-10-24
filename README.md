@@ -28,8 +28,8 @@ You will need the following to run si-OBE:
 
 ## Installation
 
-The following steps will guide you through the installation process of si-OBE for running in a development environment locally on your machine:
-1. Clone the latest version of si-OBE from the repository 
+The following steps will guide you through the installation process of StuBaby for running in a development environment locally on your machine:
+1. Clone the latest version of StuBaby from the repository 
 2. Run `composer install` to install the required PHP dependencies
 3. Copy the .env.example file to .env and edit the database credentials according to your database server
 4. Run `php artisan key:generate` to generate a new application key
@@ -41,4 +41,4 @@ The following steps will guide you through the installation process of si-OBE fo
 
 # License
 
-si-OBE is open-sourced software licensed under the [MIT license](LICENSE).
+StuBaby is open-sourced software licensed under the [MIT license](LICENSE).
