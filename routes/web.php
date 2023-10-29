@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('login');
+    return view('landing');
 });
 
 Route::get('/Admin',function () {
@@ -23,4 +23,8 @@ Route::get('/Admin',function () {
 
 Route::get('/Daftar',function () {
     return view('register');
+});
+
+Route::get('/Masuk',function () {
+    return view('login');
 });
