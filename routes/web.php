@@ -14,9 +14,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('login');
 });
 
 Route::get('/Admin',function () {
     return view('Admin');
+});
+
+Route::get('/Daftar',function () {
+    return view('register');
 });
