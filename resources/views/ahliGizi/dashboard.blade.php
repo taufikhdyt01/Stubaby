@@ -51,32 +51,28 @@
     </style>
   </head>
   <body>
-    <div
-      class="flex h-screen bg-gray-50 dark:bg-gray-900"
-      :class="{ 'overflow-hidden': isSideMenuOpen }"
-    >
-      <!-- Side bar-->
+    <div class="flex h-screen bg-gray-50 dark:bg-gray-900" :class="{ 'overflow-hidden': isSideMenuOpen }">
+    
+    <!-- Side bar-->
     <div id="sidebar" class="h-screen w-16 menu bg-white text-white px-4 flex items-center nunito static fixed shadow">
-
-<ul class="list-reset ">
-    <li class="my-2 md:my-0">
+    <ul class="list-reset ">
+      <li class="my-2 md:my-0">
         <a href="#" class="block py-1 md:py-3 pl-1 align-middle text-gray-600 no-underline hover:text-indigo-400">
             <i class="fas fa-home fa-fw mr-3"></i><span class="w-full inline-block pb-1 md:pb-0 text-sm">Home</span>
         </a>
-    </li>
-    <li class="my-2 md:my-0">
+      </li>
+      <li class="my-2 md:my-0">
         <a href="#" class="block py-1 md:py-3 pl-1 align-middle text-gray-600 no-underline hover:text-indigo-400">
             <i class="fa fa-envelope fa-fw mr-3"></i><span class="w-full inline-block pb-1 md:pb-0 text-sm">Konsultasi</span>
         </a>
-    </li>
-    <li class="my-2 md:my-0">
+      </li>
+      <li class="my-2 md:my-0">
         <a href="#" class="block py-1 md:py-3 pl-1 align-middle text-gray-600 no-underline hover:text-indigo-400">
             <i class="fa fa-wallet fa-fw mr-3"></i><span class="w-full inline-block pb-1 md:pb-0 text-sm">Konten</span>
         </a>
-    </li>
-</ul>
-
-</div>
+      </li>
+    </ul>
+  </div>
       
       <!-- Backdrop -->
       <div
