@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard Ibu Rumah Tangga</title>
+    <title>Dashboard Ahli Gizi</title>
     <link href="https://fonts.googleapis.com/css?family=Nunito:400,700,800" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css"/>
@@ -48,6 +48,16 @@
         #sidebar:hover span {
             opacity: 1;
         }
+
+        .icon:hover {
+          transform: scale(1.1);
+        }
+
+        .icon {
+          transition: transform 0.3s ease-in-out;
+        }
+
+
     </style>
   </head>
   <body>
@@ -55,24 +65,30 @@
     
     <!-- Side bar-->
     <div id="sidebar" class="h-screen w-16 menu bg-white text-white px-4 flex items-center nunito static fixed shadow">
-    <ul class="list-reset ">
-      <li class="my-2 md:my-0">
-        <a href="#" class="block py-1 md:py-3 pl-1 align-middle text-gray-600 no-underline hover:text-indigo-400">
-            <i class="fas fa-home fa-fw mr-3"></i><span class="w-full inline-block pb-1 md:pb-0 text-sm">Home</span>
-        </a>
-      </li>
-      <li class="my-2 md:my-0">
-        <a href="#" class="block py-1 md:py-3 pl-1 align-middle text-gray-600 no-underline hover:text-indigo-400">
-            <i class="fa fa-envelope fa-fw mr-3"></i><span class="w-full inline-block pb-1 md:pb-0 text-sm">Konsultasi</span>
-        </a>
-      </li>
-      <li class="my-2 md:my-0">
-        <a href="#" class="block py-1 md:py-3 pl-1 align-middle text-gray-600 no-underline hover:text-indigo-400">
-            <i class="fa fa-wallet fa-fw mr-3"></i><span class="w-full inline-block pb-1 md:pb-0 text-sm">Konten</span>
-        </a>
-      </li>
-    </ul>
-  </div>
+  <ul class="list-reset ">
+    <li class="my-2 md:my-0" style="margin-bottom: 10px;">
+      <a href="#" class="block py-1 md:py-3 pl-1 align-middle text-gray-600 no-underline hover:text-indigo-400">
+        <img src="{{ asset('/img/Home.svg') }}" alt="" style="width: 200px; height: 200px;">
+        <span class="w-full inline-block pb-1 md:pb-0 text-sm" style="text-align: center;">Home</span>
+      </a>
+    </li>
+    <li class="my-2 md:my-0" style="margin-bottom: 10px;">
+      <a href="#" class="block py-1 md:py-3 pl-1 align-middle text-gray-600 no-underline hover:text-indigo-400">
+        <img src="{{ asset('/img/Konsultasi.svg') }}" alt="" style="width: 200px; height: 200px;">
+        <span class="w-full inline-block pb-1 md:pb-0 text-sm" style="text-align: center;">Konsultasi</span>
+      </a>
+    </li>
+    <li class="my-2 md:my-0" style="margin-bottom: 10px;">
+      <a href="#" class="block py-1 md:py-3 pl-1 align-middle text-gray-600 no-underline hover:text-indigo-400">
+        <img src="{{ asset('/img/Konten.svg') }}" alt="" style="width: 200px; height: 200px;">
+        <span class="w-full inline-block pb-1 md:pb-0 text-sm" style="text-align: center;">Konten</span>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+
       
       <!-- Backdrop -->
       <div
@@ -136,10 +152,13 @@
         </div>
       </aside>
       <div class="flex flex-col flex-1 w-full">
-        <header class="z-10 py-4 bg-white shadow-md dark:bg-gray-800">
-          <div
-            class="container flex items-center justify-between h-full px-6 mx-auto text-purple-600 dark:text-purple-300"
-          >
+      <header class="z-10 py-4 bg-white shadow-md dark:bg-gray-800">
+        <div class="container flex items-center justify-between h-full px-6 mx-auto text-purple-600 dark:text-purple-300">
+
+          <!-- Logo -->
+          <div class="flex items-center">
+            <img class="w-32" src="{{ asset('img/logo_1.svg') }}" alt="Logo" class="w-12 h-12">
+          </div>
             
             <!-- Search input -->
             <div class="flex justify-center flex-1 lg:mr-32">
