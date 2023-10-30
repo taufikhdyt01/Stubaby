@@ -29,7 +29,7 @@ Route::get('/Masuk',function () {
     return view('login');
 });
 
-// IRT
-Route::get('/irt/dashboard', function () {
-    return view('IRT/dashboard');
+// Ahli Gizi
+Route::get('/ahligizi/dashboard', function () {
+    return view('ahliGizi/dashboard');
   })->name('dashboard');
