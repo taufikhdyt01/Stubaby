@@ -28,3 +28,8 @@ Route::get('/Daftar',function () {
 Route::get('/Masuk',function () {
     return view('login');
 });
+
+// IRT
+Route::get('/irt/dashboard', function () {
+    return view('IRT/dashboard');
+  })->name('dashboard');
