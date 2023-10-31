@@ -20,3 +20,15 @@ Route::get('/', function () {
 Route::get('/Admin',function () {
     return view('Admin');
 });
+
+Route::get('/Admin-Konten',function () {
+    return view('Admin-Konten');
+});
+
+Route::get('/Admin-Konsultasi',function () {
+    return view('Admin-Konsultasi');
+});
+
+Route::get('/Admin', 'App\Http\Controllers\AdminController@index');
+
+
