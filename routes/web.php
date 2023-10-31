@@ -21,6 +21,17 @@ Route::get('/Admin',function () {
     return view('Admin');
 });
 
+
+Route::get('/Admin-Konten',function () {
+    return view('Admin-Konten');
+});
+
+Route::get('/Admin-Konsultasi',function () {
+    return view('Admin-Konsultasi');
+});
+
+Route::get('/Admin', 'App\Http\Controllers\AdminController@index');
+
 Route::get('/Daftar',function () {
     return view('register');
 });
@@ -33,3 +44,4 @@ Route::get('/Masuk',function () {
 Route::get('/ahligizi/dashboard', function () {
     return view('ahliGizi/dashboard');
   })->name('dashboard');
+
