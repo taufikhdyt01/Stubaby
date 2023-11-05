@@ -43,32 +43,26 @@
 
             <!-- Bubble Chat -->
             <div class="mx-20">
-
-           
-            <div class="flex justify-start mt-5">
-  <div class="w-1/2 p-4 bg-indigo-500 text-white rounded-tl-lg rounded-tr-lg rounded-br-lg">
-    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Blanditiis atque, error modi possimus et deleniti fuga sed asperiores recusandae animi obcaecati porro molestiae neque corporis quas? Saepe sunt necessitatibus pariatur exercitationem, numquam fugit quidem natus! Natus distinctio praesentium eligendi ea, nisi ab, ipsa blanditiis aspernatur alias vel, fuga porro libero.
-  </div>
-</div>
-
-<div class="flex justify-end mt-5">
-  <div class="w-1/2 p-4 bg-white text-indigo-500 rounded-tl-lg rounded-tr-lg rounded-br-lg">
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae repellat quia reiciendis voluptatem? Mollitia cumque architecto, omnis recusandae quae explicabo aperiam velit autem tempore illo earum eum? Et alias iusto ea debitis architecto laboriosam enim doloribus veritatis adipisci iure! Ad fugiat tempora quisquam ut laboriosam aut nobis aperiam qui. Sed.
-  </div>
-</div>
-
-
-<div class="flex items-center justify-start p-4">
-<input type="text" class="w-full py-2 px-4 border border-gray-300 rounded-l-lg" placeholder="Ketik pesan...">
-  <button class="py-2 px-4 bg-indigo-500 text-white rounded-tr-lg rounded-br-lg">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
-  <path d="M3.478 2.405a.75.75 0 00-.926.94l2.432 7.905H13.5a.75.75 0 010 1.5H4.984l-2.432 7.905a.75.75 0 00.926.94 60.519 60.519 0 0018.445-8.986.75.75 0 000-1.218A60.517 60.517 0 003.478 2.405z" />
-</svg>
-
-  </button>
-  
-</div>
-    
+                <div class="flex justify-start mt-5">
+                    <div class="w-1/2 p-4 bg-indigo-500 text-white rounded-tl-lg rounded-tr-lg rounded-br-lg">
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Blanditiis atque, error modi possimus et deleniti fuga sed asperiores recusandae animi obcaecati porro molestiae neque corporis quas? Saepe sunt necessitatibus pariatur exercitationem, numquam fugit quidem natus! Natus distinctio praesentium eligendi ea, nisi ab, ipsa blanditiis aspernatur alias vel, fuga porro libero.
+                    </div>
+                </div>
+                
+            <div class="flex justify-end mt-5">
+                <div class="w-1/2 p-4 bg-white text-indigo-500 rounded-tl-lg rounded-tr-lg rounded-br-lg">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae repellat quia reiciendis voluptatem? Mollitia cumque architecto, omnis recusandae quae explicabo aperiam velit autem tempore illo earum eum? Et alias iusto ea debitis architecto laboriosam enim doloribus veritatis adipisci iure! Ad fugiat tempora quisquam ut laboriosam aut nobis aperiam qui. Sed.
+                </div>
+            </div>
+            
+            <div class="flex items-center justify-start p-4">
+                <input type="text" class="w-full py-2 px-4 border border-gray-300 rounded-l-lg" placeholder="Ketik pesan...">
+                <button class="py-2 px-4 bg-indigo-500 text-white rounded-tr-lg rounded-br-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                        <path d="M3.478 2.405a.75.75 0 00-.926.94l2.432 7.905H13.5a.75.75 0 010 1.5H4.984l-2.432 7.905a.75.75 0 00.926.94 60.519 60.519 0 0018.445-8.986.75.75 0 000-1.218A60.517 60.517 0 003.478 2.405z" />
+                    </svg>
+                </button>
+            </div>
         </main>
         <!-- Footer -->
         @include('components.footer')
