@@ -30,6 +30,10 @@ Route::get('/Masuk',function () {
 });
 
 // Ahli Gizi
-Route::get('/ahligizi/dashboard', function () {
+Route::get('/ahligizi', function () {
     return view('ahliGizi/dashboard');
   })->name('dashboard');
+
+  Route::get('/ahligizi/konsultasi', function () {
+    return view('ahliGizi/konsultasi');
+  })->name('kosnultasi');
