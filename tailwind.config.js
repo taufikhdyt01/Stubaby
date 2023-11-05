@@ -17,7 +17,10 @@ export default {
         'serif': ['Georgia', 'Cambria'],
         'mono': ['SFMono-Regular', 'Menlo'],
         'poppins': ['Poppins']
-       }
+       },
+       backgroundImage: {
+        'landing': "{{ asset('/img/bg_landing.svg') }}",
+      },
     },
   },
   plugins: [],
