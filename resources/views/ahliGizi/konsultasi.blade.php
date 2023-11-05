@@ -84,7 +84,7 @@
                             <td class="py-2 px-4">Anak saya kurang tertarik untuk makan-makanan utama</td>
                             <td class="py-2 px-4">Fitriani</td>
                             <td class="py-2 px-4 text-center">
-                                <span class="rounded-full px-4 bg-green-500 text-white">Selesai</span>
+                                <span class="py-1 px-2 rounded-full bg-green-500 text-white text-xs">Selesai</span>
                             </td>
                             <td class="py-2 px-4 text-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
@@ -99,7 +99,7 @@
                             <td class="py-2 px-4">Berat badan anak saya tiba-tiba naik setelah sakit kemarin </td>
                             <td class="py-2 px-4">Aiysha Mitra Laila</td>
                             <td class="py-2 px-4 text-center">
-                                <span class="rounded-full px-2 bg-yellow-500 text-white">Pending</span>
+                                <span class="py-1 px-2 rounded-full bg-yellow-500 text-white text-xs">Pending</span>
                             </td>
                             <td class="py-2 px-4 text-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
