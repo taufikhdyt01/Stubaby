@@ -45,11 +45,15 @@ Route::get('/ahligizi', function () {
     return view('ahliGizi/dashboard');
   })->name('dashboard');
 
-  Route::get('/ahligizi/konsultasi', function () {
+Route::get('/ahligizi/konsultasi', function () {
     return view('ahliGizi/konsultasi');
   })->name('konsultasi');
 
-  Route::get('/ahligizi/konsultasi/chat', function () {
+Route::get('/ahligizi/konsultasi/chat', function () {
     return view('ahliGizi/chatKonsultasi');
   })->name('chatKonsultasi');
+
+Route::get('/ahligizi/konten', function () {
+    return view('ahliGizi/konten');
+  })->name('Konten');
 
