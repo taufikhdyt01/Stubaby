@@ -15,7 +15,7 @@
 
   </head>
   <body>
-    <div class="flex h-screen bg-gray-50 dark:bg-gray-900" :class="{ 'overflow-hidden': isSideMenuOpen }">
+    <div class="flex h-screen bg-gray-50" :class="{ 'overflow-hidden': isSideMenuOpen }">
     
     <!-- Side bar -->
     @include('components.sidebar')
@@ -27,31 +27,31 @@
         <!-- Content -->
         <main class="h-full overflow-y-auto">
             <div class="bg-white shadow-md flex justify-between items-center p-4">
-                <div class="text-xl font-semibold text-gray-700 dark:text-gray-200 ml-20">Artikel</div>
-                <div id="tanggal" class="text-gray-700 dark:text-gray-200 mr-20"></div>
+                <div class="text-xl font-semibold text-gray-700 ml-20">Artikel</div>
+                <div id="tanggal" class="text-gray-700 mr-20"></div>
             </div>
             
             <div class="bg-white p-4 shadow-md rounded-lg my-5 mx-20">
-  <h2 class="text-xl font-semibold text-gray-700 dark:text-gray-200 mb-4">Tambah Artikel</h2>
+  <h2 class="text-xl font-semibold text-gray-700 mb-4">Tambah Artikel</h2>
   <form>
     <div class="grid grid-cols-2 gap-4">
       <div>
-        <label for="judul_artikel" class="block text-gray-700 dark:text-gray-400">Judul Artikel:</label>
+        <label for="judul_artikel" class="block text-gray-700">Judul Artikel:</label>
         <input type="text" id="judul_artikel" name="judul_artikel" class="w-full border border-gray-300 rounded-md p-2">
       </div>
       <div>
-        <label for="attachment" class="block text-gray-700 dark:text-gray-400">Attachment (Link):</label>
+        <label for="attachment" class="block text-gray-700">Attachment (Link):</label>
         <input type="text" id="attachment" name="attachment" class="w-full border border-gray-300 rounded-md p-2">
       </div>
     </div>
 
     <div class="mt-4">
-      <label for="isi_artikel" class="block text-gray-700 dark:text-gray-400">Isi Artikel:</label>
+      <label for="isi_artikel" class="block text-gray-700">Isi Artikel:</label>
       <textarea id="isi_artikel" name="isi_artikel" rows="4" class="w-full border border-gray-300 rounded-md p-2"></textarea>
     </div>
 
     <div class="mt-4">
-      <label for="upload_foto" class="block text-gray-700 dark:text-gray-400">Upload Foto:</label>
+      <label for="upload_foto" class="block text-gray-700">Upload Foto:</label>
       <input type="file" id="upload_foto" name="upload_foto" class="border border-gray-300 rounded-md p-2">
     </div>
 

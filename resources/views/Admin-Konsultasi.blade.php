@@ -47,7 +47,7 @@
         </button>
 
         <!-- Konten utama di sini -->
-        <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-black">Selamat datang di Situs Kami</h1>
+        <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">Selamat datang di Situs Kami</h1>
         <p>Ini adalah halaman utama situs kami.</p>
         <div class="container mx-auto p-8">
         <h1 class="text-2xl font-semibold mb-4">Data Konsultasi</h1>

@@ -15,7 +15,7 @@
 
   </head>
   <body>
-    <div class="flex h-screen bg-gray-50 dark:bg-gray-900" :class="{ 'overflow-hidden': isSideMenuOpen }">
+    <div class="flex h-screen bg-gray-50" :class="{ 'overflow-hidden': isSideMenuOpen }">
     
     <!-- Side bar -->
     @include('components.sidebar')
@@ -27,13 +27,13 @@
         <!-- Content -->
         <main class="h-full overflow-y-auto">
             <div class="bg-white shadow-md flex justify-between items-center p-4">
-                <div class="text-xl font-semibold text-gray-700 dark:text-gray-200 ml-20">Tiket Konsultasi</div>
-                <div id="tanggal" class="text-gray-700 dark:text-gray-200 mr-20"></div>
+                <div class="text-xl font-semibold text-gray-700 ml-20">Tiket Konsultasi</div>
+                <div id="tanggal" class="text-gray-700 mr-20"></div>
             </div>
             <!-- Filter -->
             <div class="bg-white p-4 shadow-md rounded-lg my-5 mx-20">
                 <div class="flex justify-between items-center">
-                    <div class="text-xl font-semibold text-gray-700 dark:text-gray-200">Filter</div>
+                    <div class="text-xl font-semibold text-gray-700">Filter</div>
                     <div class="flex items-center space-x-4">
                         <span class="text-gray-500">Tanggal</span>
                         <div class="relative">
@@ -65,7 +65,7 @@
             </div>
             <!-- Tabel Tiket -->
             <div class="bg-white p-4 shadow-md rounded-lg my-5 mx-20">
-                <h2 class="text-xl font-semibold text-gray-700 dark:text-gray-200 mb-4">Daftar Tiket Konsultasi</h2>
+                <h2 class="text-xl font-semibold text-gray-700 mb-4">Daftar Tiket Konsultasi</h2>
                 <table class="w-full border-collapse border border-gray-300">
                     <thead>
                         <tr>
