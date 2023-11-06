@@ -27,7 +27,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
     Route::get('/ahliGizi/dashboard', [AhliGiziController::class, 'dashboard'])->name('ahliGizi.dashboard');
     Route::get('/irt/dashboard', [IRTController::class, 'dashboard'])->name('irt.dashboard');
-    // Route::get('/home', [App\Http\Controllers\HomeController::class, 'home'])->name('home');
     Route::get('/chat/user/{user}', [App\Http\Controllers\ChatController::class, 'chat'])->name('chat');
     Route::get('/chat/room/{room}', [App\Http\Controllers\ChatController::class, 'room'])->name('chat.room');
     Route::get('/chat/get/{room}', [App\Http\Controllers\ChatController::class, 'getChat'])->name('chat.get');
@@ -44,7 +43,7 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/Admin-Konten',function () {return view('admin/Admin-Konten');});
     Route::get('/Admin-Konsultasi',function () {return view('admin/Admin-Konsultasi');});
   });
-  
+
 Route::get('/choose', function () {
   return view('auth/choose');
 })->name('choose');

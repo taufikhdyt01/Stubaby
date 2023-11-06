@@ -10,8 +10,10 @@
 </head>
 
 <body class="font-poppins">
-    <a href="">
+    <a href="#">
         <img src="{{ asset('/img/logo_2.svg') }}" class="mx-auto mt-10" alt="">
+    </a>
+
     <div class="flex flex-col h-[550px] items-center justify-center text-center">
         <h2 class="text-2xl font-semibold mb-10">
             Anda mendaftar sebagai apa?
