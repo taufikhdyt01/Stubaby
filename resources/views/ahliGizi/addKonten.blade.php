@@ -33,7 +33,8 @@
             
             <div class="bg-white p-4 shadow-md rounded-lg my-5 mx-20">
   <h2 class="text-xl font-semibold text-gray-700 mb-4">Tambah Artikel</h2>
-  <form>
+  <form method="post" action="{{ route('konten.store') }}" enctype="multipart/form-data">
+    @csrf
     <div class="grid grid-cols-2 gap-4">
       <div>
         <label for="judul_artikel" class="block text-gray-700">Judul Artikel:</label>
