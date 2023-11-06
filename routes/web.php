@@ -59,15 +59,24 @@ Route::get('/ahligizi/konsultasi/chat', function () {
 
 Route::get('/ahligizi/konten', function () {
     return view('ahliGizi/konten');
-  })->name('Konten');
+  })->name('konten');
 
 
 Route::get('/ahligizi/konten/posting', function () {
     return view('ahliGizi/addKonten');
   })->name('addKonten');
 
-Route::get('/konten', [KontenController::class, 'index'])->name('konten.index');
+  Route::get('/ahligizi/konten/show', function () {
+    return view('ahliGizi/showKonten');
+  })->name('showKonten');
+
+  Route::get('/konten/{id}', [KontenController::class, 'show'])->name('konten.show');
+
+
+
+Route::get('/ahligizi/konten', [KontenController::class, 'index'])->name('konten.index');
 Route::post('/konten', [KontenController::class, 'store'])->name('konten.store');
+Route::get('/ahligizi/konten/{id}', [KontenController::class, 'show'])->name('konten.show');
 
 Route::get('/dashboard', function () {
     return view('irt.dashboard');

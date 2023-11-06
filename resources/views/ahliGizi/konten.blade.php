@@ -35,9 +35,9 @@
             <div class="bg-white p-4 shadow-md rounded-lg my-5 mx-20">
   <div class="flex justify-between mb-4">
     <h2 class="text-xl font-semibold text-gray-700">Daftar Artikel</h2>
-    <button class="bg-indigo-500 text-white py-2 px-4 rounded-lg">
-      Tambah Artikel +
-    </button>
+    <a href="{{ route('addKonten') }}" class="bg-indigo-500 text-white py-2 px-4 rounded-lg">
+        Tambah Artikel +
+    </a>
   </div>
   <table class="w-full border-collapse border border-gray-300">
     <thead>
@@ -49,32 +49,30 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td class="py-2 px-4">28 September 2023, 15.10</td>
-        <td class="py-2 px-4">Resep masakan untuk anak usia 6 bulan yang ramah di</td>
-        <td class="py-2 px-4">Resep masakan untuk anak usia 6 bulan yang ramah di</td>
-        <td class="py-2 px-4">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
-            <path
-              d="M21.731 2.269a2.625 2.625 0 00-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 000-3.712zM19.513 8.199l-3.712-3.712-8.4 8.4a5.25 5.25 0 00-1.32 2.214l-.8 2.685a.75.75 0 00.933.933l2.685-.8a5.25 5.25 0 002.214-1.32l8.4-8.4z" />
-            <path
-              d="M5.25 5.25a3 3 0 00-3 3v10.5a3 3 0 003 3h10.5a3 3 0 003-3V13.5a.75.75 0 00-1.5 0v5.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5V8.25a1.5 1.5 0 011.5-1.5h5.25a.75.75 0 000-1.5H5.25z" />
-          </svg>
-        </td>
-      </tr>
-      <tr>
-        <td class="py-2 px-4">25 September 2023, 10.24</td>
-        <td class="py-2 px-4">Resep masakan untuk anak usia 6 bulan yang ramah di</td>
-        <td class="py-2 px-4">Resep masakan untuk anak usia 6 bulan yang ramah di</td>
-        <td class="py-2 px-4">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
-                <path d="M21.731 2.269a2.625 2.625 0 00-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 000-3.712zM19.513 8.199l-3.712-3.712-8.4 8.4a5.25 5.25 0 00-1.32 2.214l-.8 2.685a.75.75 0 00.933.933l2.685-.8a5.25 5.25 0 002.214-1.32l8.4-8.4z" />
-                <path d="M5.25 5.25a3 3 0 00-3 3v10.5a3 3 0 003 3h10.5a3 3 0 003-3V13.5a.75.75 0 00-1.5 0v5.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5V8.25a1.5 1.5 0 011.5-1.5h5.25a.75.75 0 000-1.5H5.25z" />
-            </svg>
-        </td>
-      </tr>
+      @foreach ($konten as $article)
+        <tr>
+          <td class="py-2 px-4">{{ $article->created_at->format('d F Y, H:i') }}</td>
+           <td class="py-2 px-4">{{ $article->judul }}</td>
+           <td class="py-2 px-4">{{ $article->content }}</td>
+           <td class="py-2 px-4">
+              <a href="{{ route('konten.show', ['id' => $article->id]) }}" class="your-modal-trigger-class">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                  <path d="M21.731 2.269a2.625 2.625 0 00-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 000-3.712zM19.513 8.199l-3.712-3.712-8.4 8.4a5.25 5.25 0 00-1.32 2.214l-.8 2.685a.75.75 0 00.933.933l2.685-.8a5.25 5.25 0 002.214-1.32l8.4-8.4z" />
+                  <path d="M5.25 5.25a3 3 0 00-3 3v10.5a3 3 0 003 3h10.5a3 3 0 003-3V13.5a.75.75 0 00-1.5 0v5.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5V8.25a1.5 1.5 0 011.5-1.5h5.25a.75.75 0 000-1.5H5.25z" />
+                </svg>
+              </a>
+            </td>
+          </tr>
+      @endforeach
     </tbody>
   </table>
+</div>
+
+<!-- Modal untuk showKonten.blade.php (sembunyikan secara default) -->
+<div id="modal" class="fixed top-0 left-0 flex items-center justify-center w-full h-full bg-gray-800 bg-opacity-50 hidden">
+  <div class="bg-white p-4 shadow-md rounded-lg">
+    @include('ahliGizi.showKonten')
+  </div>
 </div>
         </main>
         <!-- Footer -->
@@ -112,6 +110,23 @@
     calendarIcon.addEventListener('click', function () {
       dateInput._flatpickr.open();
     });
+  });
+
+  // Temukan tombol "Lihat Detail"
+  const openButton = document.querySelector('.text-indigo-500');
+
+  // Temukan modal
+  const modal = document.getElementById('modal');
+
+  // Ketika tombol "Lihat Detail" diklik, tampilkan modal
+  openButton.addEventListener('click', () => {
+    modal.classList.remove('hidden');
+  });
+
+  // Tombol "Batal Perubahan" pada modal (gunakan kelas modal-close untuk menutup modal)
+  const closeButton = document.querySelector('.modal-close');
+  closeButton.addEventListener('click', () => {
+    modal.classList.add('hidden');
   });
   </script>
   </body>

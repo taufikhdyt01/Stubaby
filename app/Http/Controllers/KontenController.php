@@ -9,6 +9,14 @@ use App\Models\Konten;
 
 class KontenController extends Controller
 {
+    public function index()
+    {
+    $user = auth()->user();
+    $konten = Konten::where('user_id', $user->id)->get();
+
+    return view('ahliGizi.konten', compact('konten'));
+    }
+
     public function store(Request $request)
     {
         // Validasi input dan proses lainnya
@@ -27,4 +35,20 @@ class KontenController extends Controller
 
         // Redirect atau melakukan tindakan lainnya
     }
+
+    public function show(Request $request, $id)
+    {
+        // Cari konten berdasarkan ID
+    $konten = Konten::find($id);
+
+    // Periksa apakah permintaan adalah AJAX (XHR request)
+    if ($request->ajax()) {
+        // Jika permintaan adalah AJAX, kembalikan hanya tampilan modal
+        return view('ahliGizi.showKonten', compact('konten'));
+    }
+
+    // Jika bukan permintaan AJAX, kembalikan tampilan penuh
+    return view('ahliGizi.showKonten', compact('konten'));
+    }
+
 }
