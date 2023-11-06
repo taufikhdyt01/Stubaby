@@ -15,7 +15,7 @@
 
   </head>
   <body>
-    <div class="flex h-screen bg-gray-50 dark:bg-gray-900" :class="{ 'overflow-hidden': isSideMenuOpen }">
+    <div class="flex h-screen bg-gray-50" :class="{ 'overflow-hidden': isSideMenuOpen }">
     
     <!-- Side bar -->
     @include('components.sidebar')
@@ -27,14 +27,14 @@
         <!-- Content -->
         <main class="h-full overflow-y-auto">
             <div class="bg-white shadow-md flex justify-between items-center p-4">
-                <div class="text-xl font-semibold text-gray-700 dark:text-gray-200 ml-20">Artikel</div>
-                <div id="tanggal" class="text-gray-700 dark:text-gray-200 mr-20"></div>
+                <div class="text-xl font-semibold text-gray-700 ml-20">Artikel</div>
+                <div id="tanggal" class="text-gray-700 mr-20"></div>
             </div>
             
             <!-- Tabel Artikel-->
             <div class="bg-white p-4 shadow-md rounded-lg my-5 mx-20">
   <div class="flex justify-between mb-4">
-    <h2 class="text-xl font-semibold text-gray-700 dark:text-gray-200">Daftar Artikel</h2>
+    <h2 class="text-xl font-semibold text-gray-700">Daftar Artikel</h2>
     <button class="bg-indigo-500 text-white py-2 px-4 rounded-lg">
       Tambah Artikel +
     </button>

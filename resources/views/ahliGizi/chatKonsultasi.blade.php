@@ -15,7 +15,7 @@
 
   </head>
   <body>
-    <div class="flex h-screen bg-gray-50 dark:bg-gray-900" :class="{ 'overflow-hidden': isSideMenuOpen }">
+    <div class="flex h-screen bg-gray-50" :class="{ 'overflow-hidden': isSideMenuOpen }">
     
     <!-- Side bar -->
     @include('components.sidebar')
@@ -33,7 +33,7 @@
                     <div class="text-gray-500 text-xs">Pengirim</div>
                 </div>
                 <div class="mr-20">
-                    <div id="tanggal" class="text-gray-700 dark:text-gray-200"></div>
+                    <div id="tanggal" class="text-gray-700"></div>
                     <select class="py-2 px-4 border border-gray-300 rounded-md mt-2">
                         <option value="pending">Pending</option>
                         <option value="selesai">Selesai</option>

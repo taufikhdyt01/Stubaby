@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
-    <title>Admin Anak</title>
+    <title>Admin Konten</title>
     <style>
         .frame {
             border: 2px solid #e2e2e2;
@@ -47,26 +47,17 @@
         </button>
 
         <!-- Konten utama di sini -->
-        <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-black">Selamat datang di Situs Kami</h1>
+        <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">Selamat datang di Situs Kami</h1>
         <p>Ini adalah halaman utama situs kami.</p>
         <div class="container mx-auto p-8">
-        <!-- Konten utama di sini -->
-        <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-black">Selamat datang di Situs Kami</h1>
-        <p>Ini adalah halaman utama situs kami.</p>
-        <div class="container mx-auto p-8">
-            <h1 class="text-2xl font-semibold mb-4">Data Anak</h1>
+        <h1 class="text-2xl font-semibold mb-4">Data Konten</h1>
+        <div class="frame">
+            <h2 class="text-xl font-semibold">Judul</h2>
+            <p class="text-gray-600">Tanggal Publish</p>
+            <button class="bg-blue-500 text-white px-2 py-1 rounded hover:bg-blue-700">Detail</button>
+        </div>
 
-            @foreach ($anak as $anak)
-            <div class="frame">
-                <h2 class="text-xl font-semibold">Nama Anak: {{ $anak->nama_anak }}</h2>
-                <p class="text-gray-600">Tanggal Lahir: {{ $anak->tanggal_lahir }}</p>
-                <p class="text-gray-600">Tinggi Badan: {{ $anak->tinggi_badan }}</p>
-                <p class="text-gray-600">Berat Badan: {{ $anak->berat_badan }}</p>
-                <p class="text-gray-600">Catatan: {{ $anak->catatan }}</p>
-                <button class="bg-blue-500 text-white px-2 py-1 rounded hover:bg-blue-700">Detail</button>
-            </div>
-            @endforeach
-
+        <!-- Tambahkan lebih banyak frame sesuai dengan data Anda -->
     </div>
     </div>
 

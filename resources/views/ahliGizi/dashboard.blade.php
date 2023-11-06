@@ -13,7 +13,7 @@
     
   </head>
   <body>
-    <div class="flex h-screen bg-gray-50 dark:bg-gray-900" :class="{ 'overflow-hidden': isSideMenuOpen }">
+    <div class="flex h-screen bg-gray-50" :class="{ 'overflow-hidden': isSideMenuOpen }">
     
     <!-- Side bar -->
     @include('components.sidebar')
@@ -25,12 +25,12 @@
         <!-- Content -->
         <main class="h-full overflow-y-auto">
           <div class="bg-white shadow-md flex justify-between items-center p-4">
-            <div class="text-xl font-semibold text-gray-700 dark:text-gray-200 ml-20">Dashboard</div>
-            <div id="tanggal" class="text-gray-700 dark:text-gray-200 mr-20"></div>
+            <div class="text-xl font-semibold text-gray-700 ml-20">Dashboard</div>
+            <div id="tanggal" class="text-gray-700 mr-20"></div>
           </div>
 
           
-          <div class="mt-5 text-xl font-semibold text-gray-700 dark:text-gray-200 ml-20 pl-5">Tiket Konsultasi</div>
+          <div class="mt-5 text-xl font-semibold text-gray-700 ml-20 pl-5">Tiket Konsultasi</div>
 
           <hr class="mx-20 my-4 border-t border-gray-300">
 
@@ -67,7 +67,7 @@
               </div>
             </div>
           </div>
-          <div class="mt-5 text-xl font-semibold text-gray-700 dark:text-gray-200 ml-20 pl-5">Artikel</div>
+          <div class="mt-5 text-xl font-semibold text-gray-700 ml-20 pl-5">Artikel</div>
 
           <hr class="mx-20 my-4 border-t border-gray-300">
 
