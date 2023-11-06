@@ -27,6 +27,17 @@ class AuthenticatedSessionController extends Controller
     {
         $request->authenticate();
 
+        $user = $request->user(); // Dapatkan objek pengguna yang masuk
+
+        // Berdasarkan peran pengguna, arahkan mereka ke halaman yang sesuai
+        if ($user->role === 'admin') {
+            return redirect()->route('admin.dashboard');
+        } elseif ($user->role === 'ahliGizi') {
+            return redirect()->route('ahliGizi.dashboard');
+        } elseif ($user->role === 'irt') {
+            return redirect()->route('irt.dashboard');
+        }
+
         $request->session()->regenerate();
 
         return redirect()->intended(RouteServiceProvider::HOME);

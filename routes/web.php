@@ -2,6 +2,9 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AhliGiziController;
+use App\Http\Controllers\IrtController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,20 +21,25 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+    Route::get('/ahliGizi/dashboard', [AhliGiziController::class, 'dashboard'])->name('ahliGizi.dashboard');
+    Route::get('/irt/dashboard', [IRTController::class, 'dashboard'])->name('irt.dashboard');
+});
+
 Route::get('/Admin',function () {
-    return view('Admin');
+    return view('admin/Admin');
 });
 
 
 Route::get('/Admin-Konten',function () {
-    return view('Admin-Konten');
+    return view('admin/Admin-Konten');
 });
 
 Route::get('/Admin-Konsultasi',function () {
-    return view('Admin-Konsultasi');
+    return view('admin/Admin-Konsultasi');
 });
-
-Route::get('/Admin', 'App\Http\Controllers\AdminController@index');
 
 Route::get('/Daftar',function () {
     return view('register');
@@ -42,9 +50,7 @@ Route::get('/Masuk',function () {
 });
 
 // Ahli Gizi
-Route::get('/ahligizi', function () {
-    return view('ahliGizi/dashboard');
-  })->name('dashboard');
+
 
 Route::get('/ahligizi/konsultasi', function () {
     return view('ahliGizi/konsultasi');
@@ -59,7 +65,7 @@ Route::get('/ahligizi/konten', function () {
   })->name('Konten');
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('irt.dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
