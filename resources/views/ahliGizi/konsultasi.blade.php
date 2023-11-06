@@ -67,6 +67,7 @@
             <div class="bg-white p-4 shadow-md rounded-lg my-5 mx-20">
                 <h2 class="text-xl font-semibold text-gray-700 mb-4">Daftar Tiket Konsultasi</h2>
                 <table class="w-full border-collapse border border-gray-300">
+               
                     <thead>
                         <tr>
                             <th class="py-2 px-4 bg-gray-200 text-left">Waktu</th>
@@ -78,11 +79,12 @@
                         </tr>
                     </thead>
                     <tbody>
+                    @foreach($users as $user)
                         <tr>
                             <td class="py-2 px-4">28 September 2023, 15.10</td>
                             <td class="py-2 px-4">#Tiket10200</td>
                             <td class="py-2 px-4">Anak saya kurang tertarik untuk makan-makanan utama</td>
-                            <td class="py-2 px-4">Fitriani</td>
+                            <td class="py-2 px-4">@if($user->id != auth()->user()->id) <a href="{{ route('chat', $user->id) }}">{{ $user->name }}</a>@endif</td>
                             <td class="py-2 px-4 text-center">
                                 <span class="py-1 px-2 rounded-full bg-green-500 text-white text-xs">Selesai</span>
                             </td>
@@ -93,21 +95,9 @@
                                 </svg>
                             </td>
                         </tr>
-                        <tr>
-                            <td class="py-2 px-4">25 September 2023, 10.24</td>
-                            <td class="py-2 px-4">#Tiket10199</td>
-                            <td class="py-2 px-4">Berat badan anak saya tiba-tiba naik setelah sakit kemarin </td>
-                            <td class="py-2 px-4">Aiysha Mitra Laila</td>
-                            <td class="py-2 px-4 text-center">
-                                <span class="py-1 px-2 rounded-full bg-yellow-500 text-white text-xs">Pending</span>
-                            </td>
-                            <td class="py-2 px-4 text-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
-                                    <path d="M21.731 2.269a2.625 2.625 0 00-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 000-3.712zM19.513 8.199l-3.712-3.712-8.4 8.4a5.25 5.25 0 00-1.32 2.214l-.8 2.685a.75.75 0 00.933.933l2.685-.8a5.25 5.25 0 002.214-1.32l8.4-8.4z" />
-                                    <path d="M5.25 5.25a3 3 0 00-3 3v10.5a3 3 0 003 3h10.5a3 3 0 003-3V13.5a.75.75 0 00-1.5 0v5.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5V8.25a1.5 1.5 0 011.5-1.5h5.25a.75.75 0 000-1.5H5.25z" />
-                                </svg>
-                            </td>
-                        </tr>
+                        
+                
+                        @endforeach
                     </tbody>
                 </table>
             </div>

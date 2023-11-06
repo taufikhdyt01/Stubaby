@@ -43,7 +43,8 @@ Route::middleware(['auth'])->group(function(){
     Route::delete('/admin/delete/{id}', [AdminController::class, 'delete'])->name('admin.delete');
     Route::get('/Admin-Konten',function () {return view('admin/Admin-Konten');});
     Route::get('/Admin-Konsultasi',function () {return view('admin/Admin-Konsultasi');});
-
+  });
+  
 Route::get('/choose', function () {
   return view('auth/choose');
 })->name('choose');
