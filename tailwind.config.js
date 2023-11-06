@@ -18,6 +18,7 @@ export default {
             colors: {
                 'primary': '#714AE1',
                 'subtext': '#092540',
+                'blek' : '#2C2E3D',
               },
         },
     },
