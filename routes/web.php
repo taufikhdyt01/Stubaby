@@ -29,6 +29,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/irt/dashboard', [IRTController::class, 'dashboard'])->name('irt.dashboard');
 });
 
+Route::get('/choose', function () {
+  return view('auth/choose');
+})->name('choose');
+
 
 Route::get('/Admin-Konten',function () {
     return view('admin/Admin-Konten');
@@ -87,5 +91,6 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
 
 require __DIR__.'/auth.php';
