@@ -26,47 +26,39 @@
       
         <!-- Content -->
         <main class="h-full overflow-y-auto">
-            <div class="bg-white shadow-md flex justify-between items-center p-4">
-                <div class="text-xl font-semibold text-gray-700 ml-20">Artikel</div>
-                <div id="tanggal" class="text-gray-700 mr-20"></div>
-            </div>
-            
-            <!-- Tabel Artikel-->
-            <div class="bg-white p-4 shadow-md rounded-lg my-5 mx-20">
-  <div class="flex justify-between mb-4">
-    <h2 class="text-xl font-semibold text-gray-700">Daftar Artikel</h2>
-    <a href="{{ route('addKonten') }}" class="bg-indigo-500 text-white py-2 px-4 rounded-lg">
-        Tambah Artikel +
-    </a>
-  </div>
-  <table class="w-full border-collapse border border-gray-300">
-    <thead>
-      <tr>
-        <th class="py-2 px-4 bg-gray-200 text-left">Waktu</th>
-        <th class="py-2 px-4 bg-gray-200 text-left">Judul Artikel</th>
-        <th class="py-2 px-4 bg-gray-200 text-left">Isi Artikel</th>
-        <th class="py-2 px-4 bg-gray-200 text-left">Action</th>
-      </tr>
-    </thead>
-    <tbody>
-      @foreach ($konten as $article)
-        <tr>
-          <td class="py-2 px-4">{{ $article->created_at->format('d F Y, H:i') }}</td>
-           <td class="py-2 px-4">{{ $article->judul }}</td>
-           <td class="py-2 px-4">{{ $article->content }}</td>
-           <td class="py-2 px-4">
-           <a href="{{ route('konten.edit', $article->id) }}">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
-                  <path d="M21.731 2.269a2.625 2.625 0 00-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 000-3.712zM19.513 8.199l-3.712-3.712-8.4 8.4a5.25 5.25 0 00-1.32 2.214l-.8 2.685a.75.75 0 00.933.933l2.685-.8a5.25 5.25 0 002.214-1.32l8.4-8.4z" />
-                  <path d="M5.25 5.25a3 3 0 00-3 3v10.5a3 3 0 003 3h10.5a3 3 0 003-3V13.5a.75.75 0 00-1.5 0v5.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5V8.25a1.5 1.5 0 011.5-1.5h5.25a.75.75 0 000-1.5H5.25z" />
-                </svg>
-              </a>
-            </td>
-          </tr>
-      @endforeach
-    </tbody>
-  </table>
+        <div class="bg-white p-4 shadow-md rounded-lg my-5 mx-20">
+  <h2 class="text-xl font-semibold text-gray-700 mb-4">Edit Artikel</h2>
+  <form method="post" action="{{ route('konten.update', $konten->id) }}" enctype="multipart/form-data">
+    @csrf
+    @method('PATCH')
+    <div class="grid grid-cols-2 gap-4">
+      <div>
+        <label for="judul_artikel" class="block text-gray-700">Judul Artikel:</label>
+        <input type="text" id="judul_artikel" name="judul_artikel" class="w-full border border-gray-300 rounded-md p-2" value="{{ $konten->judul }}">
+      </div>
+      <div>
+        <label for="attachment" class="block text-gray-700">Attachment (Link):</label>
+        <input type="text" id="attachment" name="attachment" class="w-full border border-gray-300 rounded-md p-2" value="{{ $konten->attachment }}">
+      </div>
+    </div>
+
+    <div class="mt-4">
+      <label for="isi_artikel" class="block text-gray-700">Isi Artikel:</label>
+      <textarea id="isi_artikel" name="isi_artikel" rows="4" class="w-full border border-gray-300 rounded-md p-2">{{ $konten->content }}</textarea>
+    </div>
+
+    <div class="mt-4">
+      <label for="upload_foto" class="block text-gray-700">Upload Foto:</label>
+      <input type="file" id="upload_foto" name="upload_foto" class="border border-gray-300 rounded-md p-2">
+    </div>
+
+    <div class="mt-4">
+      <a href="/ahligizi/konten"><button type="button" class= "bg-white text-indigo-500 border border-indigo-500 py-2 px-4 rounded-lg mr-5">Batal Perubahan</button></a>
+      <button type="submit" class="bg-indigo-500 text-white py-2 px-4 rounded-lg">Simpan Perubahan</button>
+    </div>
+  </form>
 </div>
+
         </main>
         <!-- Footer -->
         @include('components.footer')
@@ -104,6 +96,9 @@
       dateInput._flatpickr.open();
     });
   });
-    </script>
+  </script>
   </body>
 </html>
+
+
+            

@@ -13,9 +13,18 @@ export default {
         extend: {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                'poppins': ['Poppins']
             },
+            colors: {
+                'primary': '#714AE1',
+                'subtext': '#092540',
+                'blek' : '#2C2E3D',
+              },
         },
     },
 
-    plugins: [forms],
+    plugins: [
+        require('@tailwindcss/forms'),
+        // ...
+      ],
 };

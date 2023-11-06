@@ -34,6 +34,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/chat/send', [App\Http\Controllers\ChatController::class, 'sendChat'])->name('chat.send');
 });
 
+
 // admin
 Route::middleware(['auth'])->group(function(){
     Route::get('/admin/create', [AdminController::class, 'create'])->name('admin.create');
@@ -42,18 +43,12 @@ Route::middleware(['auth'])->group(function(){
     Route::delete('/admin/delete/{id}', [AdminController::class, 'delete'])->name('admin.delete');
     Route::get('/Admin-Konten',function () {return view('admin/Admin-Konten');});
     Route::get('/Admin-Konsultasi',function () {return view('admin/Admin-Konsultasi');});
-});
 
-Route::get('/Daftar',function () {
-    return view('register');
-});
-
-Route::get('/Masuk',function () {
-    return view('login');
-});
+Route::get('/choose', function () {
+  return view('auth/choose');
+})->name('choose');
 
 Route::resource('articles', 'ArticleController');
-
 
 // Ahli Gizi
 Route::middleware(['auth'])->group(function () {
@@ -65,15 +60,22 @@ Route::get('/ahligizi/konsultasi/chat', function () {
 
 Route::get('/ahligizi/konten', function () {
     return view('ahliGizi/konten');
-  })->name('Konten');
+  })->name('konten');
 
 
 Route::get('/ahligizi/konten/posting', function () {
     return view('ahliGizi/addKonten');
   })->name('addKonten');
 
-Route::get('/konten', [KontenController::class, 'index'])->name('konten.index');
+Route::get('/ahligizi/konten/edit', function () {
+    return view('ahliGizi/editKonten');
+  })->name('editKonten');
+
+Route::get('/ahligizi/konten', [KontenController::class, 'index'])->name('konten.index');
 Route::post('/konten', [KontenController::class, 'store'])->name('konten.store');
+Route::get('/ahligizi/konten/edit/{id}', [KontenController::class, 'editKonten'])->name('konten.edit');
+Route::patch('/ahligizi/konten/update/{id}', [KontenController::class, 'update'])->name('konten.update');
+
 
 Route::get('/dashboard', function () {
     return view('irt.dashboard');
@@ -84,5 +86,6 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
 
 require __DIR__.'/auth.php';
