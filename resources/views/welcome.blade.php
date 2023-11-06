@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite('resources/css/app.css')
     <title>StuBaby</title>
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,700,800" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
+    <link rel="stylesheet" href="{{ asset('css/tailwind.output.css') }}" />
 </head>
 
 <body class="font-poppins">
@@ -17,8 +21,8 @@
                     <span class="self-center text-xl font-semibold text-primary whitespace-nowrap ">StuBaby</span>
                 </a>
                 <div class="flex items-center lg:order-2 space-x-4">
-                    <a href="/Daftar" class="text-white bg-transparent hover:bg-primary font-semibold hover:text-white py-2 px-4 border border-primary hover:border-transparent rounded">Daftar</a>
-                    <a href="/Masuk" class="text-white bg-primary hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 ">Masuk</a>
+                    <a href="{{ route('register') }}" class="text-white bg-indigo-500 hover:bg-primary font-semibold hover:text-white py-2 px-4 border border-primary hover:border-transparent rounded">Daftar</a>
+                    <a href="{{ route('login') }}" class="text-white bg-indigo-500 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 ">Masuk</a>
                     <button data-collapse-toggle="mobile-menu-2" type="button" class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 " aria-controls="mobile-menu-2" aria-expanded="false">
                         <span class="sr-only">Open main menu</span>
                         <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">

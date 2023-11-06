@@ -11,6 +11,11 @@ class AdminController extends Controller
     {
         $anak = Anak::all(); // Mengambil semua data anak dari model Anak
 
-        return view('Admin', compact('anak')); // Meneruskan data anak ke view 'Admin'
+        return view('admin.Admin', compact('anak')); // Meneruskan data anak ke view 'Admin'
+    }
+
+    public function dashboard()
+    {
+        return view('admin.Admin');
     }
 }

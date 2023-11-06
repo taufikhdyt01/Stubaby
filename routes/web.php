@@ -29,10 +29,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/irt/dashboard', [IRTController::class, 'dashboard'])->name('irt.dashboard');
 });
 
-Route::get('/Admin',function () {
-    return view('admin/Admin');
-});
-
 
 Route::get('/Admin-Konten',function () {
     return view('admin/Admin-Konten');
@@ -41,17 +37,6 @@ Route::get('/Admin-Konten',function () {
 Route::get('/Admin-Konsultasi',function () {
     return view('admin/Admin-Konsultasi');
 });
-
-
-Route::get('/Admin-Konten',function () {
-    return view('Admin-Konten');
-});
-
-Route::get('/Admin-Konsultasi',function () {
-    return view('Admin-Konsultasi');
-});
-
-Route::get('/Admin', 'App\Http\Controllers\AdminController@index');
 
 Route::get('/Daftar',function () {
     return view('register');
@@ -76,24 +61,13 @@ Route::get('/ahligizi/konten', function () {
     return view('ahliGizi/konten');
   })->name('Konten');
 
+
 Route::get('/ahligizi/konten/posting', function () {
     return view('ahliGizi/addKonten');
   })->name('addKonten');
 
 Route::get('/konten', [KontenController::class, 'index'])->name('konten.index');
 Route::post('/konten', [KontenController::class, 'store'])->name('konten.store');
-
-Route::get('/dashboard', function () {
-    return view('irt.dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
-
-require __DIR__.'/auth.php';
 
 Route::get('/dashboard', function () {
     return view('irt.dashboard');
