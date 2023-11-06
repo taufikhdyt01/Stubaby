@@ -42,7 +42,7 @@
     <section>
         <!-- 1 -->
         <div>
-            
+
             <div class="relative overflow-hidden bg-cover bg-no-repeat p-12 text-center" style="background-image: url('/img/bg_landing.svg'); height: 550px">
                 <div class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-fixed" style="background: linear-gradient(0deg, rgba(55, 35, 52, 0.15) 0%, rgba(55, 35, 52, 0.15) 100%), linear-gradient(110deg, #F6D2FF 15.73%, rgba(217, 217, 217, 0.00) 87.48%);">
                     <div class="flex h-full items-center text-left">
@@ -51,13 +51,16 @@
                             <h2 class="mb-6 text-[42px] font-bold">dengan <span class="text-primary">Mudah</span> dan <span class="text-primary">Terekam</span></h2>
                             <button type="button" class="rounded border-2 border-neutral-50 px-7 pb-[8px] pt-[10px] text-sm font-medium uppercase leading-normal text-neutral-50 transition duration-150 ease-in-out hover:border-neutral-100 hover:bg-neutral-500 hover:bg-opacity-10 hover:text-neutral-100 focus:border-neutral-100 focus:text-neutral-100 focus:outline-none focus:ring-0 active:border-neutral-200 active:text-neutral-200 dark:hover:bg-neutral-100 dark:hover:bg-opacity-10" data-te-ripple-init data-te-ripple-color="light">
                                 Call to action
-                                
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                                    <path fill-rule="evenodd" d="M3.75 12a.75.75 0 01.75-.75h13.19l-5.47-5.47a.75.75 0 011.06-1.06l6.75 6.75a.75.75 0 010 1.06l-6.75 6.75a.75.75 0 11-1.06-1.06l5.47-5.47H4.5a.75.75 0 01-.75-.75z" clip-rule="evenodd" />
+                                </svg>
+
                             </button>
                         </div>
                     </div>
                 </div>
             </div>
-            
+
             <div>
 
             </div>
