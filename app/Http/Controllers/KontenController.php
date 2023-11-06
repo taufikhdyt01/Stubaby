@@ -36,19 +36,28 @@ class KontenController extends Controller
         // Redirect atau melakukan tindakan lainnya
     }
 
-    public function show(Request $request, $id)
-    {
-        // Cari konten berdasarkan ID
-    $konten = Konten::find($id);
+    public function editKonten($id)
+{
+    $konten = Konten::find($id); // Mengambil data konten berdasarkan ID
 
-    // Periksa apakah permintaan adalah AJAX (XHR request)
-    if ($request->ajax()) {
-        // Jika permintaan adalah AJAX, kembalikan hanya tampilan modal
-        return view('ahliGizi.showKonten', compact('konten'));
-    }
+    return view('ahliGizi.editKonten', compact('konten'));
+}
 
-    // Jika bukan permintaan AJAX, kembalikan tampilan penuh
-    return view('ahliGizi.showKonten', compact('konten'));
-    }
+public function update(Request $request, $id)
+{
+    // Validasi input dan proses lainnya
+
+    $konten = Konten::find($id); // Mengambil data konten berdasarkan ID
+
+    $konten->judul = $request->input('judul_artikel');
+    $konten->attachment = $request->input('attachment');
+    $konten->content = $request->input('isi_artikel');
+    
+    // Simpan perubahan
+    $konten->save();
+
+    // Redirect atau melakukan tindakan lainnya
+}
+
 
 }

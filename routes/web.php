@@ -70,17 +70,15 @@ Route::get('/ahligizi/konten/posting', function () {
     return view('ahliGizi/addKonten');
   })->name('addKonten');
 
-  Route::get('/ahligizi/konten/show', function () {
-    return view('ahliGizi/showKonten');
-  })->name('showKonten');
-
-  Route::get('/konten/{id}', [KontenController::class, 'show'])->name('konten.show');
-
-
+Route::get('/ahligizi/konten/edit', function () {
+    return view('ahliGizi/editKonten');
+  })->name('editKonten');
 
 Route::get('/ahligizi/konten', [KontenController::class, 'index'])->name('konten.index');
 Route::post('/konten', [KontenController::class, 'store'])->name('konten.store');
-Route::get('/ahligizi/konten/{id}', [KontenController::class, 'show'])->name('konten.show');
+Route::get('/ahligizi/konten/edit/{id}', [KontenController::class, 'editKonten'])->name('konten.edit');
+Route::patch('/ahligizi/konten/update/{id}', [KontenController::class, 'update'])->name('konten.update');
+
 
 Route::get('/dashboard', function () {
     return view('irt.dashboard');
