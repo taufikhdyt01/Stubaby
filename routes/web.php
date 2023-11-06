@@ -6,7 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AhliGiziController;
 use App\Http\Controllers\IrtController;
 use App\Http\Controllers\KontenController;
-
+use App\Http\Controllers\AnakController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -34,13 +34,14 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/chat/send', [App\Http\Controllers\ChatController::class, 'sendChat'])->name('chat.send');
 });
 
-
-Route::get('/Admin-Konten',function () {
-    return view('admin/Admin-Konten');
-});
-
-Route::get('/Admin-Konsultasi',function () {
-    return view('admin/Admin-Konsultasi');
+// admin
+Route::middleware(['auth'])->group(function(){
+    Route::get('/admin/create', [AdminController::class, 'create'])->name('admin.create');
+    Route::get('/admin/edit/{id}', [AdminController::class, 'edit'])->name('admin.edit');
+    Route::post('/admin', [AdminController::class, 'store'])->name('admin.store');
+    Route::delete('/admin/delete/{id}', [AdminController::class, 'delete'])->name('admin.delete');
+    Route::get('/Admin-Konten',function () {return view('admin/Admin-Konten');});
+    Route::get('/Admin-Konsultasi',function () {return view('admin/Admin-Konsultasi');});
 });
 
 Route::get('/Daftar',function () {

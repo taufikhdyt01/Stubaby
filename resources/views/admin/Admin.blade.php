@@ -46,29 +46,48 @@
             </svg>
         </button>
 
-        <!-- Konten utama di sini -->
-        <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">Selamat datang di Situs Kami</h1>
-        <p>Ini adalah halaman utama situs kami.</p>
+        
         <div class="container mx-auto p-8">
         <!-- Konten utama di sini -->
-        <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">Selamat datang di Situs Kami</h1>
-        <p>Ini adalah halaman utama situs kami.</p>
+        <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">Data Anak</h1>
+        <p>berisikan detail data anak.</p>
         <div class="container mx-auto p-8">
-            <h1 class="text-2xl font-semibold mb-4">Data Anak</h1>
+        <a href="{{ route('admin.create') }}" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">Tambah Anak</a>
 
-            @foreach ($anak as $anak)
-            <div class="frame">
-                <h2 class="text-xl font-semibold">Nama Anak: {{ $anak->nama_anak }}</h2>
-                <p class="text-gray-600">Tanggal Lahir: {{ $anak->tanggal_lahir }}</p>
-                <p class="text-gray-600">Tinggi Badan: {{ $anak->tinggi_badan }}</p>
-                <p class="text-gray-600">Berat Badan: {{ $anak->berat_badan }}</p>
-                <p class="text-gray-600">Catatan: {{ $anak->catatan }}</p>
-                <button class="bg-blue-500 text-white px-2 py-1 rounded hover:bg-blue-700">Detail</button>
-            </div>
-            @endforeach
 
-    </div>
-    </div>
+<!-- Konten utama di sini -->
+<table class="min-w-full divide-y divide-gray-200">
+    <thead>
+        <tr>
+            
+            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nama Anak</th>
+            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Tanggal Lahir</th>
+            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Tinggi Badan</th>
+            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Berat Badan</th>
+            <!-- <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Catatan</th> -->
+            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Aksi</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach ($anak as $anakItem)
+        <tr>
+            <td class="px-6 py-4 whitespace-nowrap">{{ $anakItem->nama_anak }}</td>
+            <td class="px-6 py-4 whitespace-nowrap">{{ $anakItem->tanggal_lahir }}</td>
+            <td class="px-6 py-4 whitespace-nowrap">{{ $anakItem->tinggi_badan }}</td>
+            <td class="px-6 py-4 whitespace-nowrap">{{ $anakItem->berat_badan }}</td>
+            <!-- <td class="px-6 py-4 whitespace-nowrap">{{ $anakItem->catatan }}</td> -->
+            <td class="px-6 py-4 whitespace-nowrap">
+            <form action="{{ route('admin.delete', ['id' => $anakItem->id]) }}" method="POST">
+    @csrf
+    @method('DELETE')
+    <button type="submit" class="delete-btn bg-red-500 text-white px-2 py-1 rounded hover-bg-red-700">Hapus</button>
+</form>
+</td>
+        </tr>
+        @endforeach
+    </tbody>
+</table>
+
 
     <script>
         function toggleSidebar() {
@@ -76,6 +95,10 @@
             sidebar.classList.toggle('w-16');
             sidebar.classList.toggle('w-0');
         }
+        
+    
+</script>
+
     </script>
 </body>
 </html>
