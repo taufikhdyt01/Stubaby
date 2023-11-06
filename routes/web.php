@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AhliGiziController;
 use App\Http\Controllers\IrtController;
+use App\Http\Controllers\KontenController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,10 +27,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
     Route::get('/ahliGizi/dashboard', [AhliGiziController::class, 'dashboard'])->name('ahliGizi.dashboard');
     Route::get('/irt/dashboard', [IRTController::class, 'dashboard'])->name('irt.dashboard');
-});
-
-Route::get('/Admin',function () {
-    return view('admin/Admin');
 });
 
 
@@ -63,6 +60,14 @@ Route::get('/ahligizi/konsultasi/chat', function () {
 Route::get('/ahligizi/konten', function () {
     return view('ahliGizi/konten');
   })->name('Konten');
+
+
+Route::get('/ahligizi/konten/posting', function () {
+    return view('ahliGizi/addKonten');
+  })->name('addKonten');
+
+Route::get('/konten', [KontenController::class, 'index'])->name('konten.index');
+Route::post('/konten', [KontenController::class, 'store'])->name('konten.store');
 
 Route::get('/dashboard', function () {
     return view('irt.dashboard');
