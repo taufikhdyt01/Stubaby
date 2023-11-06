@@ -27,6 +27,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
     Route::get('/ahliGizi/dashboard', [AhliGiziController::class, 'dashboard'])->name('ahliGizi.dashboard');
     Route::get('/irt/dashboard', [IRTController::class, 'dashboard'])->name('irt.dashboard');
+    // Route::get('/home', [App\Http\Controllers\HomeController::class, 'home'])->name('home');
+    Route::get('/chat/user/{user}', [App\Http\Controllers\ChatController::class, 'chat'])->name('chat');
+    Route::get('/chat/room/{room}', [App\Http\Controllers\ChatController::class, 'room'])->name('chat.room');
+    Route::get('/chat/get/{room}', [App\Http\Controllers\ChatController::class, 'getChat'])->name('chat.get');
+    Route::post('/chat/send', [App\Http\Controllers\ChatController::class, 'sendChat'])->name('chat.send');
 });
 
 
@@ -46,13 +51,13 @@ Route::get('/Masuk',function () {
     return view('login');
 });
 
+Route::resource('articles', 'ArticleController');
+
+
 // Ahli Gizi
-
-
-Route::get('/ahligizi/konsultasi', function () {
-    return view('ahliGizi/konsultasi');
-  })->name('konsultasi');
-
+Route::middleware(['auth'])->group(function () {
+Route::get('/ahligizi/konsultasi',[App\Http\Controllers\HomeController::class, 'home'], function () { return view('ahliGizi/konsultasi');})->name('konsultasi');
+});
 Route::get('/ahligizi/konsultasi/chat', function () {
     return view('ahliGizi/chatKonsultasi');
   })->name('chatKonsultasi');

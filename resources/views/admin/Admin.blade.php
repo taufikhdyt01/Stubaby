@@ -25,7 +25,7 @@
             </div>
             <ul class="flex flex-col items-center space-y-2 flex-1 justify-center">
                 <li class="w-10 h-10 p-2 rounded-lg hover:bg-gray-700 cursor-pointer">
-                    <a href="/Admin"><img src="{{ asset('/img/Anak.svg') }}" alt=""></a>
+                    <a href="/admin/dashboard"><img src="{{ asset('/img/Anak.svg') }}" alt=""></a>
                 </li>
                 <li class="w-10 h-10 p-2 rounded-lg hover:bg-gray-700 cursor-pointer">
                     <a href="/Admin-Konten"><img src="{{ asset('/img/Konten.svg') }}" alt=""></a>
