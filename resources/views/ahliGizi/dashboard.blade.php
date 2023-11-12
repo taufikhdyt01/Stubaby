@@ -46,7 +46,7 @@
                   </div>
                   <div>
                     <p class="text-gray-500">Total Tiket Konsultasi Terjawab</p>
-                    <p class="text-2xl font-semibold">11</p>
+                    <p class="text-2xl font-semibold">{{ $selesaiCount }}</p>
                   </div>
                 </div>
               </div>
@@ -61,7 +61,7 @@
                   </div>
                   <div>
                     <p class="text-gray-500">Total Tiket Konsultasi Pending</p>
-                    <p class="text-2xl font-semibold">5</p>
+                    <p class="text-2xl font-semibold">{{ $pendingCount }}</p>
                   </div>
                 </div>
               </div>
@@ -83,22 +83,7 @@
                   </div>
                   <div>
                     <p class="text-gray-500">Artikel Terposting</p>
-                    <p class="text-2xl font-semibold">5</p>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Card 2 -->
-              <div class="mx-20 bg-white rounded-lg shadow-md p-10">
-                <div class="flex items-center">
-                  <div class="mr-4 p-2 rounded-md bg-indigo-600 text-white">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 01-2.25 2.25M16.5 7.5V18a2.25 2.25 0 002.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 002.25 2.25h13.5M6 7.5h3v3H6v-3z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <p class="text-gray-500">Artikel Draft</p>
-                    <p class="text-2xl font-semibold">3</p>
+                    <p class="text-2xl font-semibold">{{ $articleCount }}</p>
                   </div>
                 </div>
               </div>
