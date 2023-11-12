@@ -7,6 +7,7 @@ use App\Http\Controllers\AhliGiziController;
 use App\Http\Controllers\IrtController;
 use App\Http\Controllers\KontenController;
 use App\Http\Controllers\AnakController;
+use App\Http\Controllers\TiketKonsultasiController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -51,12 +52,12 @@ Route::get('/choose', function () {
 Route::resource('articles', 'ArticleController');
 
 // Ahli Gizi
-Route::middleware(['auth'])->group(function () {
-Route::get('/ahligizi/konsultasi',[App\Http\Controllers\HomeController::class, 'home'], function () { return view('ahliGizi/konsultasi');})->name('konsultasi');
-});
-Route::get('/ahligizi/konsultasi/chat', function () {
-    return view('ahliGizi/chatKonsultasi');
-  })->name('chatKonsultasi');
+Route::get('/ahligizi/konsultasi', [TiketKonsultasiController::class, 'index'])->name('tiket.index');
+
+Route::get('/ahligizi/konsultasi/chat/{id}', [TiketKonsultasiController::class, 'chatKonsultasi'])->name('tiket.chat');
+
+Route::post('/ahligizi/konsultasi/update/{id}', [TiketKonsultasiController::class, 'update'])->name('tiket.update');
+
 
 Route::get('/ahligizi/konten', function () {
     return view('ahliGizi/konten');
