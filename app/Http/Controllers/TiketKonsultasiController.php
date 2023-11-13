@@ -32,4 +32,26 @@ class TiketKonsultasiController extends Controller
 
         return redirect()->back();
     }
+
+    public function filteredKonsultasi(Request $request)
+    {
+        $tiketKonsultasis = TiketKonsultasi::query();
+
+        // Terapkan filter berdasarkan input dari formulir
+        if ($request->has('tanggal')) {
+            $tiketKonsultasis->where('tanggal', $request->tanggal);
+        }
+
+        if ($request->has('status')) {
+        $tiketKonsultasis->where('status', $request->status);
+        }
+
+        if ($request->has('search')) {
+        $tiketKonsultasis->where('judul_tiket', 'like', '%' . $request->search . '%');
+        }
+
+        $tiketKonsultasis = $tiketKonsultasis->get();
+
+        return view('ahligizi.konsultasi', ['tiketKonsultasis' => $tiketKonsultasis]);
+    }
 }
