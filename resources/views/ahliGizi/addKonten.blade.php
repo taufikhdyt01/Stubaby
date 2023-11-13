@@ -33,7 +33,7 @@
             
             <div class="bg-white p-4 shadow-md rounded-lg my-5 mx-20">
   <h2 class="text-xl font-semibold text-gray-700 mb-4">Tambah Artikel</h2>
-  <form method="post" action="{{ route('konten.store') }}" enctype="multipart/form-data">
+  <form method="post" action="{{ route('konten.store') }}?success" enctype="multipart/form-data" onsubmit="showSuccessPopup()">
     @csrf
     <div class="grid grid-cols-2 gap-4">
       <div>
@@ -57,8 +57,11 @@
     </div>
 
     <div class="mt-4">
-      <button type="submit" class="bg-indigo-500 text-white py-2 px-4 rounded-lg">Tambah Artikel</button>
+      <button type="submit" @click.prevent="showNotification" class="bg-indigo-500 text-white py-2 px-4 rounded-lg">Tambah Artikel</button>
     </div>
+    <div x-show="isNotificationVisible" x-cloak class="fixed top-0 right-0 m-4 bg-green-500 text-white p-2 rounded">
+  Artikel berhasil ditambahkan!
+</div>
   </form>
 </div>
 
@@ -99,6 +102,30 @@
       dateInput._flatpickr.open();
     });
   });
+
+  function data() {
+    return {
+      isNotificationVisible: false,
+      showNotification() {
+        this.isNotificationVisible = true;
+        setTimeout(() => {
+          this.isNotificationVisible = false;
+        }, 3000); // Adjust the timeout as needed (in milliseconds)
+      },
+    };
+  }
+
+  // Show success pop-up and redirect to the content page
+  function showSuccessPopup() {
+        alert('Artikel berhasil ditambahkan!');
+        window.location.href = "{{ route('konten.index') }}";
+    }
+
+    // Check if the URL contains the success parameter
+    let urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has('success')) {
+        showSuccessPopup();
+    }
   </script>
   </body>
 </html>

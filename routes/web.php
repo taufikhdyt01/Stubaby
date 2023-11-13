@@ -62,7 +62,7 @@ Route::get('/ahligizi/konten/posting', function () {
 })->name('addKonten');
 
 Route::get('/ahligizi/konten', [KontenController::class, 'index'])->name('konten.index');
-Route::post('/konten', [KontenController::class, 'store'])->name('konten.store');
+Route::post('/ahligizi/konten/post', [KontenController::class, 'store'])->name('konten.store');
 Route::get('/ahligizi/konten/edit/{id}', [KontenController::class, 'editKonten'])->name('konten.edit');
 Route::patch('/ahligizi/konten/update/{id}', [KontenController::class, 'update'])->name('konten.update');
 
