@@ -33,7 +33,8 @@ class KontenController extends Controller
         // Simpan artikel
         $konten->save();
 
-        // Redirect atau melakukan tindakan lainnya
+        // Redirect with a success message
+        return redirect()->route('konten.index')->with('success', 'Artikel berhasil ditambahkan!');
     }
 
     public function editKonten($id)
@@ -56,7 +57,8 @@ public function update(Request $request, $id)
     // Simpan perubahan
     $konten->save();
 
-    // Redirect atau melakukan tindakan lainnya
+    // Redirect with a success message
+    return redirect()->route('konten.index');
 }
 
 

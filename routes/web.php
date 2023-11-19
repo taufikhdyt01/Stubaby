@@ -7,6 +7,7 @@ use App\Http\Controllers\AhliGiziController;
 use App\Http\Controllers\IrtController;
 use App\Http\Controllers\KontenController;
 use App\Http\Controllers\AnakController;
+use App\Http\Controllers\TiketKonsultasiController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,7 +26,7 @@ Route::get('/', function () {
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
-    Route::get('/ahliGizi/dashboard', [AhliGiziController::class, 'dashboard'])->name('ahliGizi.dashboard');
+    Route::get('/ahliGizi/dashboard', [AhliGiziController::class, 'index'])->name('ahliGizi.dashboard');
     Route::get('/irt/dashboard', [IRTController::class, 'dashboard'])->name('irt.dashboard');
     Route::get('/chat/user/{user}', [App\Http\Controllers\ChatController::class, 'chat'])->name('chat');
     Route::get('/chat/room/{room}', [App\Http\Controllers\ChatController::class, 'room'])->name('chat.room');
@@ -51,28 +52,17 @@ Route::get('/choose', function () {
 Route::resource('articles', 'ArticleController');
 
 // Ahli Gizi
-Route::middleware(['auth'])->group(function () {
-Route::get('/ahligizi/konsultasi',[App\Http\Controllers\HomeController::class, 'home'], function () { return view('ahliGizi/konsultasi');})->name('konsultasi');
-});
-Route::get('/ahligizi/konsultasi/chat', function () {
-    return view('ahliGizi/chatKonsultasi');
-  })->name('chatKonsultasi');
-
-Route::get('/ahligizi/konten', function () {
-    return view('ahliGizi/konten');
-  })->name('konten');
-
+Route::get('/ahligizi/konsultasi', [TiketKonsultasiController::class, 'index'])->name('tiket.index');
+Route::get('/ahligizi/konsultasi/chat/{id}', [TiketKonsultasiController::class, 'chatKonsultasi'])->name('tiket.chat');
+Route::post('/ahligizi/konsultasi/update/{id}', [TiketKonsultasiController::class, 'update'])->name('tiket.update');
+Route::get('/ahligizi/konsultasi/filter', [TiketKonsultasiController::class, 'filteredKonsultasi'])->name('tiket.filter');
 
 Route::get('/ahligizi/konten/posting', function () {
-    return view('ahliGizi/addKonten');
-  })->name('addKonten');
-
-Route::get('/ahligizi/konten/edit', function () {
-    return view('ahliGizi/editKonten');
-  })->name('editKonten');
+  return view('ahliGizi/addKonten');
+})->name('addKonten');
 
 Route::get('/ahligizi/konten', [KontenController::class, 'index'])->name('konten.index');
-Route::post('/konten', [KontenController::class, 'store'])->name('konten.store');
+Route::post('/ahligizi/konten/post', [KontenController::class, 'store'])->name('konten.store');
 Route::get('/ahligizi/konten/edit/{id}', [KontenController::class, 'editKonten'])->name('konten.edit');
 Route::patch('/ahligizi/konten/update/{id}', [KontenController::class, 'update'])->name('konten.update');
 

@@ -22,7 +22,7 @@
                     <span class="self-center text-xl font-semibold text-primary whitespace-nowrap ">StuBaby</span>
                 </a>
                 <div class="flex items-center lg:order-2 space-x-6">
-                    <a href="{{ route('register') }}" class="text-primary hover:bg-primary font-semibold hover:text-white py-2 px-4 border-2 border-primary hover:border-transparent rounded">Daftar</a>
+                    <a href="{{ route('choose') }}" class="text-primary hover:bg-primary font-semibold hover:text-white py-2 px-4 border-2 border-primary hover:border-transparent rounded">Daftar</a>
                     <a href="{{ route('login') }}" class="text-white bg-primary hover:bg-indigo-500 font-semibold hover:text-white py-2 px-4 border-2 border-primary hover:border-transparent rounded">Masuk</a>
                     <!-- <button data-collapse-toggle="mobile-menu-2" type="button" class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 " aria-controls="mobile-menu-2" aria-expanded="false">
                         <span class="sr-only">Open main menu</span>

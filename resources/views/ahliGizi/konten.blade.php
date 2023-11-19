@@ -52,8 +52,8 @@
       @foreach ($konten as $article)
         <tr>
           <td class="py-2 px-4">{{ $article->created_at->format('d F Y, H:i') }}</td>
-           <td class="py-2 px-4">{{ $article->judul }}</td>
-           <td class="py-2 px-4">{{ $article->content }}</td>
+           <td class="py-2 px-4">{{ Str::limit($article->judul, 30) }}</td>
+           <td class="py-2 px-4">{{ Str::limit($article->content, 70) }}</td>
            <td class="py-2 px-4">
            <a href="{{ route('konten.edit', $article->id) }}">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
