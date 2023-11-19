@@ -1,42 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html :class="{ 'theme-dark': dark }" x-data="data()" lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+<meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Konten</title>
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,700,800" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
+    <link rel="stylesheet" href="{{ asset('css/tailwind.output.css') }}" />
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    <script src="{{ asset('js/init-alpine.js') }}"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <title>Admin Konten</title>
-    <style>
-        .frame {
-            border: 2px solid #e2e2e2;
-            border-radius: 8px;
-            padding: 16px;
-            margin: 16px;
-            display: inline-block;
-            width: 300px;
-        }
-    </style>
+    
 </head>
 <body class="font-sans bg-gray-100">
+    
     <!-- Sidebar -->
-    <div class="bg-gray-800 text-white h-screen w-16 fixed top-0 left-0 z-50" id="sidebar">
-        <div class="flex flex-col items-center justify-between h-full">
-            <div class="flex items-center justify-center h-16 w-full">
-                <span class="text-2xl font-semibold">S</span>
-            </div>
-            <ul class="flex flex-col items-center space-y-2 flex-1 justify-center">
-                <li class="w-10 h-10 p-2 rounded-lg hover:bg-gray-700 cursor-pointer">
-                    <a href="/admin/dashboard"><img src="{{ asset('/img/Anak.svg') }}" alt=""></a>
-                </li>
-                <li class="w-10 h-10 p-2 rounded-lg hover:bg-gray-700 cursor-pointer">
-                    <a href="/Admin-Konten"><img src="{{ asset('/img/Konten.svg') }}" alt=""></a>
-                </li>
-                <li class="w-10 h-10 p-2 rounded-lg hover:bg-gray-700 cursor-pointer">
-                    <a href="/Admin-Konsultasi"><img src="{{ asset('/img/Konsultasi.svg') }}" alt=""></a>
-                </li>
-            </ul>
-        </div>
-    </div>
-
+    @include('components-admin.sidebar')
+    <!--header-->
+    @include('components.header')
     <!-- Konten Utama -->
     <div class="ml-16 p-4">
         <!-- Tombol untuk membuka dan menutup sidebar pada perangkat seluler -->

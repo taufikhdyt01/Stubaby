@@ -41,7 +41,7 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/admin/edit/{id}', [AdminController::class, 'edit'])->name('admin.edit');
     Route::post('/admin', [AdminController::class, 'store'])->name('admin.store');
     Route::delete('/admin/delete/{id}', [AdminController::class, 'delete'])->name('admin.delete');
-    Route::get('/Admin-Konten',function () {return view('admin/Admin-Konten');});
+    Route::get('/admin/Admin-Konten',function () {return view('admin/Admin-Konten');});
     Route::get('/Admin-Konsultasi',function () {return view('admin/Admin-Konsultasi');});
   });
 
