@@ -66,10 +66,16 @@ Route::post('/ahligizi/konten/post', [KontenController::class, 'store'])->name('
 Route::get('/ahligizi/konten/edit/{id}', [KontenController::class, 'editKonten'])->name('konten.edit');
 Route::patch('/ahligizi/konten/update/{id}', [KontenController::class, 'update'])->name('konten.update');
 
-
+// irt
 Route::get('/dashboard', function () {
     return view('irt.dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+// Route::get('/irt/artikel', [KontenController::class, 'index'])->name('artikel.index');
+
+Route::get('/irt/artikel', function () {
+  return view('irt.artikel');
+})->middleware(['auth', 'verified'])->name('artikel');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
