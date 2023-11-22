@@ -77,6 +77,14 @@ Route::get('/irt/artikel', function () {
   return view('irt.artikel');
 })->middleware(['auth', 'verified'])->name('artikel');
 
+Route::get('/irt/diarykecil', function () {
+  return view('irt.diarykecil');
+})->middleware(['auth', 'verified'])->name('diarykecil');
+
+Route::get('/irt/konsultasiirt', function () {
+  return view('irt.konsultasiirt');
+})->middleware(['auth', 'verified'])->name('konsultasiirt');
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

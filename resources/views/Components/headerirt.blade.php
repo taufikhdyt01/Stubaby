@@ -22,10 +22,10 @@
                     <a href="/irt/diarykecil" class="block py-2 pr-4 pl-3 text-white hover:text-yellow-300">DiaryKecil</a>
                 </li>
                 <li>
-                    <a href="/irt/konsultasi" class="block py-2 pr-4 pl-3 text-white hover:text-yellow-300">Konsultasi</a>
+                    <a href="/irt/konsultasiirt" class="block py-2 pr-4 pl-3 text-white hover:text-yellow-300">Konsultasi</a>
                 </li>
                 <li>
-                    <a href="{{ route('irt/artikel') }} class="block py-2 pr-4 pl-3 text-white hover:text-yellow-300">Artikel</a>
+                    <a href="/irt/artikel" class="block py-2 pr-4 pl-3 text-white hover:text-yellow-300">Artikel</a>
                 </li>
                 <li class="relative">
                     <button class="align-middle rounded-full focus:shadow-outline-purple focus:outline-none" @click="toggleProfileMenu" @keydown.escape="closeProfileMenu" aria-label="Account" aria-haspopup="true">
