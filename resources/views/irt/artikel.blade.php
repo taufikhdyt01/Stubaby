@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" x-data="data()">
 
 <head>
     <meta charset="UTF-8" />
@@ -16,7 +16,8 @@
 
 <body>
     <!-- Header -->
-    @include('components.headerirt')
+    @include('components.headerirt', ["activeLink" => "artikel"])
+
 
     <!-- Section -->
     

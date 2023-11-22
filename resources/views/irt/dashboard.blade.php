@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" x-data="data()">
 
 <head>
     <meta charset="UTF-8" />
@@ -17,7 +17,7 @@
 
 <body>
     <!-- header -->
-    @include('components.headerirt')
+    @include('components.headerirt', ["activeLink" => "dashboard"])
 
     <!-- section -->
     <div class="flex flex-auto justify-between">
@@ -83,7 +83,7 @@
                 </div>
                 <hr class="h-px my-2 bg-gray-200 border-0">
                 <!-- Artikel 2.1 -->
-                <div class="space-y-5 overflow-y-scroll">
+                <div class="space-y-5 overflow-y-auto h-[300px] card-container">
                     <div>
                         <a href="#">
                             <div class="flex flex-auto">
@@ -146,6 +146,63 @@
                             </div>
                         </a>
                     </div>
+                    <div>
+                        <a href="#">
+                            <div class="flex flex-auto">
+                                <img src="{{ asset('/img/artikel1.svg') }}" class="w-[108px] rounded-md" alt="gambar cover">
+                                <div class="flex flex-col justify-between mx-3">
+                                    <span class="font-semibold text-lg line-clamp-1">8 Cara Menjaga Kesehatan Tubuh Anak agar Tidak Mudah Sakit Jelang Masuk Sekolah</span>
+                                    <p class="text-gray-600">
+                                        <span>28 September 2023</span>
+                                        <span>12:30</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="#">
+                            <div class="flex flex-auto">
+                                <img src="{{ asset('/img/artikel1.svg') }}" class="w-[108px] rounded-md" alt="gambar cover">
+                                <div class="flex flex-col justify-between mx-3">
+                                    <span class="font-semibold text-lg line-clamp-1">8 Cara Menjaga Kesehatan Tubuh Anak agar Tidak Mudah Sakit Jelang Masuk Sekolah</span>
+                                    <p class="text-gray-600">
+                                        <span>28 September 2023</span>
+                                        <span>12:30</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="#">
+                            <div class="flex flex-auto">
+                                <img src="{{ asset('/img/artikel1.svg') }}" class="w-[108px] rounded-md" alt="gambar cover">
+                                <div class="flex flex-col justify-between mx-3">
+                                    <span class="font-semibold text-lg line-clamp-1">8 Cara Menjaga Kesehatan Tubuh Anak agar Tidak Mudah Sakit Jelang Masuk Sekolah</span>
+                                    <p class="text-gray-600">
+                                        <span>28 September 2023</span>
+                                        <span>12:30</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="#">
+                            <div class="flex flex-auto">
+                                <img src="{{ asset('/img/artikel1.svg') }}" class="w-[108px] rounded-md" alt="gambar cover">
+                                <div class="flex flex-col justify-between mx-3">
+                                    <span class="font-semibold text-lg line-clamp-1">8 Cara Menjaga Kesehatan Tubuh Anak agar Tidak Mudah Sakit Jelang Masuk Sekolah</span>
+                                    <p class="text-gray-600">
+                                        <span>28 September 2023</span>
+                                        <span>12:30</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
                 </div>
             </div>
 
