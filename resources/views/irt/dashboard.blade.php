@@ -15,19 +15,21 @@
 
 </head>
 
-<body>
+<body class="bg-[#F8F8F8]">
     <!-- header -->
     @include('components.headerirt', ["activeLink" => "dashboard"])
 
     <!-- section -->
-    <div class="flex flex-auto justify-between">
+    <div class="flex flex-auto justify-between align-middle">
         <!-- kiri -->
         <!-- 1 -->
         <div class="bg-white p-4 shadow-md rounded-lg my-5 ml-20 w-[800px]">
+            <!-- tanggal hari ini -->
             <h2 class="text-2xl font-semibold text-gray-700 mb-4">Hari ini, 28 September 2023</h2>
             <hr class="h-px my-2 bg-gray-200 border-0">
             <div class="flex flex-auto justify-between items-center align-middle text-center">
-                <h2 class="text-xl font-semibold text-gray-700 mb-4">September 2023</h2>
+                <!-- bulan -->
+                <h2 class="text-xl font-semibold text-gray-700">September 2023</h2>
                 <div class="">
                     <button>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -217,7 +219,7 @@
                     </a>
                 </div>
                 <hr class="h-px my-2 bg-gray-200 border-0">
-                <div class="overflow-y-scroll">
+                <div class="overflow-y-auto h-[300px] card-container">
                     <!-- tiket 3.1 -->
                     <div>
                         <!-- id tiket -->

@@ -14,12 +14,60 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body>
+<body class="bg-[#F8F8F8]">
     <!-- Header -->
     @include('components.headerirt', ["activeLink" => "diarykecil"])
 
     <!-- Section -->
-    
+    <div class="bg-white p-4 shadow-md rounded-lg my-5 mx-20 w-auto items-center align-middle">
+        <!-- tanggal hari ini -->
+        <h2 class="text-2xl font-semibold text-gray-700 mb-4">Hari ini, 28 September 2023</h2>
+        <hr class="h-px my-2 bg-gray-200 border-0">
+        <div class="flex flex-auto justify-between items-center align-middle text-center">
+            <!-- bulan saja -->
+            <h2 class="text-xl font-semibold text-gray-700 items-center align-middle text-center">September 2023</h2>
+            <div class="">
+                <button>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                    </svg>
+                </button>
+                <button>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                    </svg>
+
+                </button>
+            </div>
+
+        </div>
+        <hr class="h-px my-2 bg-gray-200 border-0">
+        <table class="w-full border-collapse border border-gray-300">
+            <thead>
+                <tr>
+                    <th class="py-2 px-4 bg-purple-200 text-left">Tanggal</th>
+                    <th class="py-2 px-4 bg-purple-200 text-left">Status</th>
+                    <th class="py-2 px-4 bg-purple-200 text-left">Nama Anak</th>
+                    <th class="py-2 px-4 bg-purple-200 text-left">Berat Badan</th>
+                    <th class="py-2 px-4 bg-purple-200 text-left">Tinggi Badan</th>
+                    <th class="py-2 px-4 bg-purple-200 text-left">Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- tofik, ocit, isi data tabel disini -->
+            </tbody>
+        </table>
+        <hr class="h-px my-2 bg-gray-200 border-0">
+        <a href="#">
+            <button class="bg-primary font-semibold flex flex-auto rounded-lg text-white px-5 py-2">
+                Tambah Informasi
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                </svg>
+            </button>
+        </a>
+    </div>
+
     <!-- Footer -->
     @include('components.footer')
 </body>
