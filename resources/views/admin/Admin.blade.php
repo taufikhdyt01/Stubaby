@@ -48,22 +48,26 @@
         </tr>
     </thead>
     <tbody>
-        @foreach ($anak as $anakItem)
-        <tr>
-            <td class="px-6 py-4 whitespace-nowrap">{{ $anakItem->nama_anak }}</td>
-            <td class="px-6 py-4 whitespace-nowrap">{{ $anakItem->tanggal_lahir }}</td>
-            <td class="px-6 py-4 whitespace-nowrap">{{ $anakItem->tinggi_badan }}</td>
-            <td class="px-6 py-4 whitespace-nowrap">{{ $anakItem->berat_badan }}</td>
-            <!-- <td class="px-6 py-4 whitespace-nowrap">{{ $anakItem->catatan }}</td> -->
-            <td class="px-6 py-4 whitespace-nowrap">
+    @forelse ($anak as $anakItem)
+    <tr>
+        <td class="px-6 py-4 whitespace-nowrap">{{ $anakItem->nama_anak }}</td>
+        <td class="px-6 py-4 whitespace-nowrap">{{ $anakItem->tanggal_lahir }}</td>
+        <td class="px-6 py-4 whitespace-nowrap">{{ $anakItem->tinggi_badan }}</td>
+        <td class="px-6 py-4 whitespace-nowrap">{{ $anakItem->berat_badan }}</td>
+        <!-- <td class="px-6 py-4 whitespace-nowrap">{{ $anakItem->catatan }}</td> -->
+        <td class="px-6 py-4 whitespace-nowrap">
             <form action="{{ route('admin.delete', ['id' => $anakItem->id]) }}" method="POST">
-    @csrf
-    @method('DELETE')
-    <button type="submit" class="delete-btn bg-red-500 text-white px-2 py-1 rounded hover-bg-red-700">Hapus</button>
-</form>
-</td>
-        </tr>
-        @endforeach
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="delete-btn bg-red-500 text-white px-2 py-1 rounded hover-bg-red-700">Hapus</button>
+            </form>
+        </td>
+    </tr>
+@empty
+    <tr>
+        <td colspan="6" class="px-6 py-4 whitespace-nowrap">Tidak ada data anak.</td>
+    </tr>
+@endforelse
     </tbody>
 </table>
 

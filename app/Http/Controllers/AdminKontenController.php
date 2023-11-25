@@ -5,9 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Konten;
 
-
-
-class KontenController extends Controller
+class AdminKontenController extends Controller
 {
     public function index()
     {
@@ -15,8 +13,7 @@ class KontenController extends Controller
     $konten = Konten::where('user_id', $user->id)->get();
     
 
-    return view('ahliGizi.konten', compact('konten'));
-    }
+    return view('admin.Admin-Konten', compact('konten'));}
 
     public function store(Request $request)
     {
@@ -35,17 +32,17 @@ class KontenController extends Controller
         $konten->save();
 
         // Redirect with a success message
-        return redirect()->route('konten.index')->with('success', 'Artikel berhasil ditambahkan!');
+        return redirect()->route('Admin-konten.index')->with('success', 'Artikel berhasil ditambahkan!');
     }
 
     public function editKonten($id)
 {
     $konten = Konten::find($id); // Mengambil data konten berdasarkan ID
 
-    return view('ahliGizi.editKonten', compact('konten'));
+    return view('admin.editAdminKonten', compact('konten'));
 }
 
-public function update(Request $request, $id)
+public function update_X(Request $request, $id)
 {
     // Validasi input dan proses lainnya
 
@@ -59,8 +56,20 @@ public function update(Request $request, $id)
     $konten->save();
 
     // Redirect with a success message
-    return redirect()->route('konten.index');
+    return redirect()->route('Admin-konten.index');
+}
+public function deleteKonten($id)
+{
+    $konten = Konten::find($id);
+
+    if (!$konten) {
+        return redirect()->route('Admin-konten.index')->with('error', 'Konten not found.');
+    }
+
+    $konten->delete();
+
+    return redirect()->route('Admin-konten.index')->with('success', 'Konten deleted successfully.');
 }
 
-
 }
+
