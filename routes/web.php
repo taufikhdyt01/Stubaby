@@ -71,8 +71,6 @@ Route::get('/dashboard', function () {
     return view('irt.dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-// Route::get('/irt/artikel', [KontenController::class, 'index'])->name('artikel.index');
-
 Route::get('/irt/artikel', function () {
   return view('irt.artikel');
 })->middleware(['auth', 'verified'])->name('artikel');
@@ -91,5 +89,16 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::get('/irt/bacaartikel', function () {
+  return view('irt.bacaartikel');
+})->middleware(['auth', 'verified'])->name('bacaartikel');
+
+Route::get('/irt/addTiket', function () {
+  return view('irt.addTiket');
+})->middleware(['auth', 'verified'])->name('addTiket');
+
+Route::get('/irt/addDiary', function () {
+  return view('irt.addDiary');
+})->middleware(['auth', 'verified'])->name('addDiary');
 
 require __DIR__.'/auth.php';

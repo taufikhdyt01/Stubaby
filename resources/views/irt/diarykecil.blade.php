@@ -19,7 +19,7 @@
     @include('components.headerirt', ["activeLink" => "diarykecil"])
 
     <!-- Section -->
-    <div class="bg-white p-4 shadow-md rounded-lg my-5 mx-20 w-auto items-center align-middle">
+    <div class="bg-white p-4 shadow-md rounded-lg my-5 lg:mx-20 md:mx-10 w-auto items-center align-middle">
         <!-- tanggal hari ini -->
         <h2 class="text-2xl font-semibold text-gray-700 mb-4">Hari ini, 28 September 2023</h2>
         <hr class="h-px my-2 bg-gray-200 border-0">
@@ -42,6 +42,7 @@
 
         </div>
         <hr class="h-px my-2 bg-gray-200 border-0">
+        <div class="overflow-x-auto">
         <table class="w-full border-collapse border border-gray-300">
             <thead>
                 <tr>
@@ -57,8 +58,9 @@
                 <!-- tofik, ocit, isi data tabel disini -->
             </tbody>
         </table>
+        </div>
         <hr class="h-px my-2 bg-gray-200 border-0">
-        <a href="#">
+        <a href="/irt/addDiary">
             <button class="bg-primary font-semibold flex flex-auto rounded-lg text-white px-5 py-2">
                 Tambah Informasi
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
