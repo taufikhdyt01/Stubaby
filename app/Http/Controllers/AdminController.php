@@ -40,20 +40,32 @@ class AdminController extends Controller
 
     public function edit($id)
     {
-        $data = Admin::find($id); // Ganti dengan model yang sesuai
-        return view('admin.edit', compact('data'));
+        $anak = Anak::find($id);
+
+        return view('admin.edit', compact('anak'));
     }
 
     public function update(Request $request, $id)
     {
         $request->validate([
-            // Validasi input
+            'nama_anak' => 'required',
+            'tanggal_lahir' => 'required|date',
+            'tinggi_badan' => 'required|numeric',
+            'berat_badan' => 'required|numeric',
+            'catatan' => 'nullable',
         ]);
 
-        Admin::where('id', $id)->update($request->all()); // Ganti dengan model yang sesuai
+        $anak = Anak::find($id);
 
-        return redirect('admin.Admin', compact('anak'))->with('success', 'Data berhasil diperbarui');
+        if (!$anak) {
+            return redirect()->route('admin.dashboard')->with('error', 'Anak not found.');
+        }
+
+        $anak->update($request->all());
+
+        return redirect()->route('admin.dashboard')->with('success', 'Anak data updated successfully.');
     }
+
 
    
    

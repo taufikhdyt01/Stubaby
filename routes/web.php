@@ -38,8 +38,10 @@ Route::middleware(['auth'])->group(function () {
 
 // admin
 Route::middleware(['auth'])->group(function(){
+  // edit data anak admin
     Route::get('/admin/create', [AdminController::class, 'create'])->name('admin.create');
     Route::get('/admin/edit/{id}', [AdminController::class, 'edit'])->name('admin.edit');
+    Route::patch('/admin/update/{id}', [AdminController::class, 'update'])->name('admin.update');
     Route::post('/admin', [AdminController::class, 'store'])->name('admin.store');
     Route::delete('/admin/delete/{id}', [AdminController::class, 'delete'])->name('admin.delete');
    // konten admin
