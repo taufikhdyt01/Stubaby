@@ -76,10 +76,22 @@ Route::post('/ahligizi/konten/post', [KontenController::class, 'store'])->name('
 Route::get('/ahligizi/konten/edit/{id}', [KontenController::class, 'editKonten'])->name('konten.edit');
 Route::patch('/ahligizi/konten/update/{id}', [KontenController::class, 'update'])->name('konten.update');
 
-
+// irt
 Route::get('/dashboard', function () {
     return view('irt.dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('/irt/artikel', function () {
+  return view('irt.artikel');
+})->middleware(['auth', 'verified'])->name('artikel');
+
+Route::get('/irt/diarykecil', function () {
+  return view('irt.diarykecil');
+})->middleware(['auth', 'verified'])->name('diarykecil');
+
+Route::get('/irt/konsultasiirt', function () {
+  return view('irt.konsultasiirt');
+})->middleware(['auth', 'verified'])->name('konsultasiirt');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -87,5 +99,16 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::get('/irt/bacaartikel', function () {
+  return view('irt.bacaartikel');
+})->middleware(['auth', 'verified'])->name('bacaartikel');
+
+Route::get('/irt/addTiket', function () {
+  return view('irt.addTiket');
+})->middleware(['auth', 'verified'])->name('addTiket');
+
+Route::get('/irt/addDiary', function () {
+  return view('irt.addDiary');
+})->middleware(['auth', 'verified'])->name('addDiary');
 
 require __DIR__.'/auth.php';

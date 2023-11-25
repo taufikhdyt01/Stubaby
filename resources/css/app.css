@@ -1,3 +1,27 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.card-container:{
+    
+}
+
+/* width */
+.card-container::-webkit-scrollbar {
+    width: 7px;
+  }
+  
+  /* Track */
+  .card-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Handle */
+  .card-container::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+  
+  /* Handle on hover */
+  .card-container::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
