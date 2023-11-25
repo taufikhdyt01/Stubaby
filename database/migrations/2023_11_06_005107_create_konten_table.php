@@ -9,20 +9,20 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
-    {
-        Schema::create('konten', function (Blueprint $table) {
-            $table->id();
-            $table->string('judul');
-            $table->string('attachment')->nullable();
-            $table->text('content');
-            $table->binary('media')->nullable();
-            $table->unsignedBigInteger('user_id');
-            $table->timestamps();
-
-            $table->foreign('user_id')->references('id')->on('users');
-        });
-    }
+    public function up()
+{
+    Schema::create('konten', function (Blueprint $table) {
+        $table->id();
+        $table->string('judul');
+        $table->string('attachment')->nullable();
+        $table->text('content');
+        $table->binary('media')->nullable();
+        $table->unsignedBigInteger('user_id');
+        $table->timestamps();
+        
+        $table->foreign('user_id')->references('id')->on('users');
+    });
+}
     /**
      * Reverse the migrations.
      */
