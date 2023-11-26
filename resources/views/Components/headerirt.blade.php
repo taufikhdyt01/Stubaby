@@ -24,7 +24,7 @@
                             <span class="ml-2 text-sm font-semibold text-white">{{ Auth::user()->name }}</span>
                         </div>
                     </button>
-                    <template x-if="isProfileMenuOpen" >
+                    <template x-if="isProfileMenuOpen">
                         <ul x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" @click.away="closeProfileMenu" @keydown.escape="closeProfileMenu" class="absolute right-0 w-56 p-2 mt-2 space-y-2 text-gray-600 bg-white border border-gray-100 rounded-md shadow-md " aria-label="submenu">
                             <li class="flex">
                                 <a class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover-bg-gray-100 hover-text-gray-800 " href="#">
@@ -43,7 +43,7 @@
                                         @csrf
                                         <span href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();">
                                             {{ __('Log Out') }}
-                                        </span>
+                                         </span>
                                     </form>
                                 </a>
                             </li>
@@ -70,7 +70,7 @@
                         <a href="/irt/diarykecil" class="block py-2 pr-4 pl-3 {{ $activeLink == 'diarykecil' ? 'text-yellow-400' : 'text-white' }} hover:text-yellow-400">DiaryKecil</a>
                     </li>
                     <li>
-                        <a href="/irt/konsultasiirt" class="block py-2 pr-4 pl-3 {{ $activeLink == 'konsultasi' ? 'text-yellow-400' : 'text-white' }} hover:text-yellow-400">Konsultasi</a>
+                        <a href="/irt/konsultasi" class="block py-2 pr-4 pl-3 {{ $activeLink == 'konsultasi' ? 'text-yellow-400' : 'text-white' }} hover:text-yellow-400">Konsultasi</a>
                     </li>
                     <li>
                         <a href="/irt/artikel" class="block py-2 pr-4 pl-3 {{ $activeLink == 'artikel' ? 'text-yellow-400' : 'text-white' }} hover:text-yellow-400">Artikel</a>
