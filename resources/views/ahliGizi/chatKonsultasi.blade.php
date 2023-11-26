@@ -26,27 +26,34 @@
             <!-- Header -->
             @include('components.header')
 
-            <!-- Content -->
-            <main class="h-full overflow-y-auto">
-                <div class="bg-white shadow-md flex justify-between items-center p-4">
-                    <div class="ml-20">
-                        <div class="text-indigo-500 text-xl font-semibold">#Tiket{{ $tiket->id }}</div>
-                        <div class="text-black text-lg">{{ $tiket->judul_tiket }}</div>
-                        <div class="text-gray-500 text-sm">{{ $tiket->pengirim }}</div>
-                    </div>
-                    <div class="mr-20">
-                        <div id="tanggal" class="text-gray-700"></div>
-                        <div class="text-gray-700 text-right mt-2">
-                            @if ($tiket->status === 'Selesai')
-                                <span
-                                    class="bg-green-500 text-white py-1 px-2 rounded-full text-sm">{{ $tiket->status }}</span>
-                            @else
-                                <span
-                                    class="bg-yellow-500 text-white py-1 px-2 rounded-full text-sm">{{ $tiket->status }}</span>
-                            @endif
-                        </div>
+            <div class="bg-white shadow-md flex justify-between items-center p-4 fixed w-full z-50">
+                <div class="ml-20">
+                    <div class="text-indigo-500 text-xl font-semibold">#Tiket{{ $tiket->id }}</div>
+                    <div class="text-black text-lg">{{ $tiket->judul_tiket }}</div>
+                    <div class="text-gray-500 text-sm">{{ $tiket->pengirim }}</div>
+                </div>
+                <div class="mr-20">
+                    <div id="tanggal" class="text-gray-700"></div>
+                    <div class="text-gray-700 text-right mt-2">
+                        @if ($tiket->status === 'Selesai')
+                            <span
+                                class="bg-green-500 text-white py-1 px-2 rounded-full text-sm">{{ $tiket->status }}</span>
+                        @else
+                            <form action="{{ route('tiket.update', ['id' => $tiket->id]) }}" method="POST">
+                                @csrf
+                                @method('PUT')
+                                <button type="submit"
+                                    class="bg-yellow-500 text-white py-1 px-2 rounded-full text-sm">Tandai
+                                    Selesai</button>
+                            </form>
+                        @endif
                     </div>
                 </div>
+            </div>
+
+            <!-- Content -->
+            <main class="h-full overflow-y-auto mt-16 mx-5">
+
                 <div class="w-full">
                     <div id="chat-container" class="mt-2 space-y-2">
                         @foreach ($chats as $chat)

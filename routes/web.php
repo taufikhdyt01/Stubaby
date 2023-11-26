@@ -62,6 +62,7 @@ Route::resource('articles', 'ArticleController');
 Route::get('/ahligizi/konsultasi', [TiketKonsultasiController::class, 'index'])->name('tiket.index');
 Route::get('/ahligizi/konsultasi/chat/{id}', [TiketKonsultasiController::class, 'chatKonsultasi'])->name('tiket.chat');
 Route::post('ahligizi/konsultasi/chat/{id}', [TiketKonsultasiController::class, 'kirimPesan'])->name('kirim.pesan');
+Route::put('ahligizi/konsultasi/chat/{id}', [TiketKonsultasiController::class, 'update'])->name('tiket.update');
 Route::get('/ahligizi/konsultasi/filter', [TiketKonsultasiController::class, 'filteredKonsultasi'])->name('tiket.filter');
 
 Route::get('/ahligizi/konten/posting', function () {
@@ -92,8 +93,8 @@ Route::middleware(['auth'])->group(function () {
   Route::get('/irt/bacaartikel', function () {return view('irt.bacaartikel');});
   Route::get('/irt/konsultasi', [TiketKonsultasiController::class, 'index'])->name('irt.konsultasi');
   Route::get('/irt/addTiket', function () {return view('irt.addTiket');});
-  Route::get('/irt/konsultasi/chat/{id}', [TiketKonsultasiController::class, 'chatKonsultasiIrt'])->name('tiket.chat.irt');
-  Route::post('/irt/konsultasi/chat/{id}', [TiketKonsultasiController::class, 'kirimPesanIrt'])->name('kirim.pesan.irt');
+  Route::get('/irt/konsultasi/chat/{id}', [TiketKonsultasiController::class, 'chatKonsultasi'])->name('tiket.chat.irt');
+  Route::post('/irt/konsultasi/chat/{id}', [TiketKonsultasiController::class, 'kirimPesan'])->name('kirim.pesan.irt');
 
   
 });

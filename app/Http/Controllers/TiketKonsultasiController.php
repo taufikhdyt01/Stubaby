@@ -25,22 +25,19 @@ class TiketKonsultasiController extends Controller
 
     public function chatKonsultasi($id)
     {
+        $user = Auth::user();
         $tiket = TiketKonsultasi::find($id);
         $chats = TiketKonsultasi::find($id)->chats;
-        return view('ahliGizi.chatKonsultasi', ['tiket' => $tiket, 'chats' => $chats]);
-    }
-
-    public function chatKonsultasiIrt($id)
-    {
-        $tiket = TiketKonsultasi::find($id);
-        $chats = TiketKonsultasi::find($id)->chats;
-        return view('irt.chatKonsultasi', ['tiket' => $tiket, 'chats' => $chats]);
+        if ($user->role === 'ahliGizi') {
+            return view('ahliGizi.chatKonsultasi', ['tiket' => $tiket, 'chats' => $chats]);
+        } elseif ($user->role === 'irt') {
+            return view('irt.chatKonsultasi', ['tiket' => $tiket, 'chats' => $chats]);
+        }
     }
 
     public function update(Request $request, $id)
     {
         $tiket = TiketKonsultasi::findOrFail($id);
-        $tiket->solusi = $request->input('solusi');
         $tiket->status = 'Selesai';
         $tiket->save();
 
@@ -71,6 +68,7 @@ class TiketKonsultasiController extends Controller
 
     public function kirimPesan(Request $request)
     {
+        $user = Auth::user();
         $pesanBaru = new PesanTiketKonsultasi();
         $pesanBaru->id_tiket_konsultasi = $request->id_tiket_konsultasi;
         $pesanBaru->pengirim_id = auth()->user()->id;
@@ -90,7 +88,12 @@ class TiketKonsultasiController extends Controller
         $pesanTerkini = PesanTiketKonsultasi::where('id_tiket_konsultasi', $tiket->id)->get();
 
         // Mengembalikan view yang menampilkan tiket dan pesan terkini
-        return view('ahliGizi.chatKonsultasi', compact('tiket', 'pesanTerkini','chats'));
+        if ($user->role === 'ahliGizi') {
+            return view('ahliGizi.chatKonsultasi', compact('tiket', 'pesanTerkini','chats'));
+        } elseif ($user->role === 'irt') {
+            return view('irt.chatKonsultasi', compact('tiket', 'pesanTerkini','chats'));
+        }
+        
     }
 
 }
