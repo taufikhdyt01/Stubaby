@@ -18,7 +18,7 @@
 
 <body class="bg-[#F8F8F8]">
   <!-- header -->
-  @include('components.headerirt', ["activeLink" => "konsultasi"])
+    @include('components.headerirt', ["activeLink" => "konsultasi"])
 
   <!-- section -->
   <div class="bg-white lg:mx-56 md:mx-32 mx-8 lg:my-32 md:my-16 my-8 space-y-2 lg:space-y-5 md:space-y-3 lg:px-20 md:px-10 px-5 lg:py-12 md:py-8 py-4">
