@@ -24,9 +24,9 @@ class SendMessageEvent implements ShouldBroadcast
 
     public function broadcastOn()
     {
-        return new PrivateChannel('ticket.' . $this->message->id);
+        return new Channel('ticket.' . $this->message->id_tiket_konsultasi);
     }
-    
+
     public function broadcastAs()
     {
         return 'newMessage';

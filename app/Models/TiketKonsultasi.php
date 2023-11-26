@@ -24,6 +24,11 @@ class TiketKonsultasi extends Model
         return $this->belongsTo(User::class, 'id_irt');
     }
 
+    public function chats()
+    {
+        return $this->hasMany(PesanTiketKonsultasi::class, 'id_tiket_konsultasi');
+    }
+
     public static function create(array $attributes = [])
     {
         $instance = new static($attributes);

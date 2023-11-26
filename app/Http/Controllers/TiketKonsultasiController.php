@@ -22,7 +22,8 @@ class TiketKonsultasiController extends Controller
     public function chatKonsultasi($id)
     {
         $tiket = TiketKonsultasi::find($id);
-        return view('ahliGizi.chatKonsultasi', ['tiket' => $tiket]);
+        $chats = TiketKonsultasi::find($id)->chats;
+        return view('ahliGizi.chatKonsultasi', ['tiket' => $tiket, 'chats' => $chats]);
     }
 
     public function update(Request $request, $id)
@@ -45,11 +46,11 @@ class TiketKonsultasiController extends Controller
         }
 
         if ($request->has('status')) {
-        $tiketKonsultasis->where('status', $request->status);
+            $tiketKonsultasis->where('status', $request->status);
         }
 
         if ($request->has('search')) {
-        $tiketKonsultasis->where('judul_tiket', 'like', '%' . $request->search . '%');
+            $tiketKonsultasis->where('judul_tiket', 'like', '%' . $request->search . '%');
         }
 
         $tiketKonsultasis = $tiketKonsultasis->get();
@@ -62,21 +63,22 @@ class TiketKonsultasiController extends Controller
         $pesanBaru = new PesanTiketKonsultasi();
         $pesanBaru->id_tiket_konsultasi = $request->id_tiket_konsultasi;
         $pesanBaru->pengirim_id = auth()->user()->id;
-        $pesanBaru->penerima_id = $request->penerima_id; 
+        $pesanBaru->penerima_id = $request->penerima_id;
         $pesanBaru->pesan = $request->pesan;
-        
+
         $pesanBaru->save();
 
         // broadcast(new SendMessageEvent($pesanBaru))->toOthers();
         broadcast(new SendMessageEvent($pesanBaru));
 
         // Mengambil tiket terkini yang dikirim pesan
-    $tiket = TiketKonsultasi::findOrFail($request->id_tiket_konsultasi);
+        $tiket = TiketKonsultasi::findOrFail($request->id_tiket_konsultasi);
+        $chats = TiketKonsultasi::findOrFail($request->id_tiket_konsultasi)->chats;
 
-    // Mengambil pesan-pesan terkini pada tiket tersebut
-    $pesanTerkini = PesanTiketKonsultasi::where('id_tiket_konsultasi', $tiket->id)->get();
+        // Mengambil pesan-pesan terkini pada tiket tersebut
+        $pesanTerkini = PesanTiketKonsultasi::where('id_tiket_konsultasi', $tiket->id)->get();
 
-    // Mengembalikan view yang menampilkan tiket dan pesan terkini
-    return view('ahliGizi.chatKonsultasi', compact('tiket', 'pesanTerkini'));
+        // Mengembalikan view yang menampilkan tiket dan pesan terkini
+        return view('ahliGizi.chatKonsultasi', compact('tiket', 'pesanTerkini','chats'));
     }
 }
