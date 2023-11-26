@@ -18,10 +18,10 @@ class AnakSeeder extends Seeder
                         'tinggi_badan' => 70,
                         'berat_badan' => 8,
                         'catatan' => 'Anak yang sehat',
+                        'user_id' => '3',
                         'created_at' => now(),
                         'updated_at' => now(),
                     ],
-                    // Tambahkan data lain sesuai kebutuhan
                 ];
         
             DB::table('anak')->insert($data);
