@@ -15,7 +15,9 @@ class CreateAnakTable extends Migration
         $table->integer('tinggi_badan');
         $table->integer('berat_badan');
         $table->text('catatan')->nullable();
+        $table->unsignedBigInteger('user_id');
         $table->timestamps();
+        $table->foreign('user_id')->references('id')->on('users');
     });
 }
 

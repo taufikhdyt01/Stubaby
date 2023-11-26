@@ -34,7 +34,7 @@
     <div class="grid grid-cols-2 gap-4">
       <div>
         <label for="judul_artikel" class="block text-gray-700">Judul Artikel:</label>
-        <input type="text" id="judul_artikel" name="judul_artikel" class="w-full border border-gray-300 rounded-md p-2" value="{{ $konten->judul }}">
+        <input type="text" id="judul_artikel" name="judul_artikel" class="w-full border border-gray-300 rounded-md p-2" value="{{ $konten->judul }}"required>
       </div>
       <div>
         <label for="attachment" class="block text-gray-700">Attachment (Link):</label>
@@ -44,7 +44,7 @@
 
     <div class="mt-4">
       <label for="isi_artikel" class="block text-gray-700">Isi Artikel:</label>
-      <textarea id="isi_artikel" name="isi_artikel" rows="4" class="w-full border border-gray-300 rounded-md p-2">{{ $konten->content }}</textarea>
+      <textarea id="isi_artikel" name="isi_artikel" rows="4" class="w-full border border-gray-300 rounded-md p-2"required>{{ $konten->content }}</textarea>
     </div>
 
     <div class="mt-4">
