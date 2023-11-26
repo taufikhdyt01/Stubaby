@@ -10,7 +10,7 @@ class AdminKontenController extends Controller
     public function index()
     {
     $user = auth()->user();
-    $konten = Konten::where('user_id', $user->id)->get();
+    $konten = Konten::all();
     
 
     return view('admin.Admin-Konten', compact('konten'));}
@@ -41,7 +41,7 @@ class AdminKontenController extends Controller
 
     return view('admin.editAdminKonten', compact('konten'));
 }
-
+    
 public function update_X(Request $request, $id)
 {
     // Validasi input dan proses lainnya

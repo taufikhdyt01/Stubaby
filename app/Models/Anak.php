@@ -19,5 +19,10 @@ class Anak extends Model
         'tinggi_badan',
         'berat_badan',
         'catatan',
+        'user_id',
     ];
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
