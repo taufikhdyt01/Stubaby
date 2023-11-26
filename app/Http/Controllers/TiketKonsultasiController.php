@@ -14,9 +14,13 @@ class TiketKonsultasiController extends Controller
     {
         $user = Auth::user();
 
-        $tiketKonsultasis = TiketKonsultasi::where('id_ahligizi', $user->id)->get();
-
-        return view('ahliGizi.konsultasi', ['tiketKonsultasis' => $tiketKonsultasis]);
+        if ($user->role === 'ahliGizi') {
+            $tiketKonsultasis = TiketKonsultasi::where('id_ahligizi', $user->id)->get();
+            return view('ahliGizi.konsultasi', ['tiketKonsultasis' => $tiketKonsultasis]);
+        } elseif ($user->role === 'irt') {
+            $tiketKonsultasis = TiketKonsultasi::where('id_irt', $user->id)->get();
+            return view('irt.konsultasi', ['tiketKonsultasis' => $tiketKonsultasis]);
+        }
     }
 
     public function chatKonsultasi($id)
@@ -24,6 +28,13 @@ class TiketKonsultasiController extends Controller
         $tiket = TiketKonsultasi::find($id);
         $chats = TiketKonsultasi::find($id)->chats;
         return view('ahliGizi.chatKonsultasi', ['tiket' => $tiket, 'chats' => $chats]);
+    }
+
+    public function chatKonsultasiIrt($id)
+    {
+        $tiket = TiketKonsultasi::find($id);
+        $chats = TiketKonsultasi::find($id)->chats;
+        return view('irt.chatKonsultasi', ['tiket' => $tiket, 'chats' => $chats]);
     }
 
     public function update(Request $request, $id)
@@ -81,4 +92,5 @@ class TiketKonsultasiController extends Controller
         // Mengembalikan view yang menampilkan tiket dan pesan terkini
         return view('ahliGizi.chatKonsultasi', compact('tiket', 'pesanTerkini','chats'));
     }
+
 }

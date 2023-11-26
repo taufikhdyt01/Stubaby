@@ -30,7 +30,7 @@
             <main class="h-full overflow-y-auto">
                 <div class="bg-white shadow-md flex justify-between items-center p-4">
                     <div class="ml-20">
-                        <div class="text-indigo-500 text-xl font-semibold">{{ $tiket->id }}</div>
+                        <div class="text-indigo-500 text-xl font-semibold">#Tiket{{ $tiket->id }}</div>
                         <div class="text-black text-lg">{{ $tiket->judul_tiket }}</div>
                         <div class="text-gray-500 text-sm">{{ $tiket->pengirim }}</div>
                     </div>

@@ -30,10 +30,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
     Route::get('/ahliGizi/dashboard', [AhliGiziController::class, 'index'])->name('ahliGizi.dashboard');
     Route::get('/irt/dashboard', [IRTController::class, 'dashboard'])->name('irt.dashboard');
-    Route::get('/chat/user/{user}', [App\Http\Controllers\ChatController::class, 'chat'])->name('chat');
-    Route::get('/chat/room/{room}', [App\Http\Controllers\ChatController::class, 'room'])->name('chat.room');
-    Route::get('/chat/get/{room}', [App\Http\Controllers\ChatController::class, 'getChat'])->name('chat.get');
-    Route::post('/chat/send', [App\Http\Controllers\ChatController::class, 'sendChat'])->name('chat.send');
 });
 
 
@@ -94,8 +90,11 @@ Route::middleware(['auth'])->group(function () {
   Route::get('/irt/editDiary/{id}', [dairyController::class, 'edit'])->name('irt.editDiary');
   Route::patch('/irt/updateDiary/{id}', [dairyController::class, 'update'])->name('irt.updateDiary');
   Route::get('/irt/bacaartikel', function () {return view('irt.bacaartikel');});
-  Route::get('/irt/konsultasi', function () {return view('irt.konsultasi');});
+  Route::get('/irt/konsultasi', [TiketKonsultasiController::class, 'index'])->name('irt.konsultasi');
   Route::get('/irt/addTiket', function () {return view('irt.addTiket');});
+  Route::get('/irt/konsultasi/chat/{id}', [TiketKonsultasiController::class, 'chatKonsultasiIrt'])->name('tiket.chat.irt');
+  Route::post('/irt/konsultasi/chat/{id}', [TiketKonsultasiController::class, 'kirimPesanIrt'])->name('kirim.pesan.irt');
+
   
 });
 require __DIR__.'/auth.php';

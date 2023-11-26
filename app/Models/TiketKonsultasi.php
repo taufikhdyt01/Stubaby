@@ -24,6 +24,11 @@ class TiketKonsultasi extends Model
         return $this->belongsTo(User::class, 'id_irt');
     }
 
+    public function ahliGizi()
+    {
+        return $this->belongsTo(User::class, 'id_ahligizi');
+    }
+
     public function chats()
     {
         return $this->hasMany(PesanTiketKonsultasi::class, 'id_tiket_konsultasi');
@@ -33,6 +38,7 @@ class TiketKonsultasi extends Model
     {
         $instance = new static($attributes);
         $instance->pengirim = $instance->irt->name ?? null;
+        $instance->penerima = $instance->ahliGizi->name ?? null;
         $instance->save();
 
         return $instance;

@@ -16,6 +16,7 @@ return new class extends Migration
             $table->timestamps();
             $table->string('judul_tiket');
             $table->string('pengirim')->nullable();
+            $table->string('penerima')->nullable();
             $table->enum('status', ['Selesai', 'Pending']);
             $table->unsignedBigInteger('id_ahligizi');
             $table->unsignedBigInteger('id_irt'); 
