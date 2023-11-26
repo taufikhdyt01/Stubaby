@@ -14,15 +14,11 @@ return new class extends Migration
         Schema::create('tiket_konsultasis', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('id_tiket');
             $table->string('judul_tiket');
             $table->string('pengirim')->nullable();
             $table->enum('status', ['Selesai', 'Pending']);
             $table->unsignedBigInteger('id_ahligizi');
             $table->unsignedBigInteger('id_irt'); 
-            $table->text('deskripsi')->nullable();
-            $table->text('solusi')->nullable();
-
             // Foreign key constraints
             $table->foreign('id_ahligizi')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('id_irt')->references('id')->on('users')->onDelete('cascade');

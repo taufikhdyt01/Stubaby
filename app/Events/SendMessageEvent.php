@@ -9,38 +9,26 @@ use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
+use App\Models\PesanTiketKonsultasi;
 
-class ChatEvent implements ShouldBroadcast
+class SendMessageEvent implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    public $room;
     public $message;
-    public $sender;
 
-    public function __construct($room, $message, $sender)
+    public function __construct($message)
     {
-        $this->room = $room;
         $this->message = $message;
-        $this->sender = $sender;
     }
 
     public function broadcastOn()
     {
-        return ['chat-channel'];
+        return new PrivateChannel('ticket.' . $this->message->id);
     }
-
+    
     public function broadcastAs()
     {
-        return 'chat-send';
-    }
-
-    public function broadcastWith()
-    {
-        return [
-            'room' => $this->room,
-            'message' => $this->message,
-            'sender' => $this->sender
-        ];
+        return 'newMessage';
     }
 }

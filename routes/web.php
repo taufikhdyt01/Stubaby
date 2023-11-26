@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AhliGiziController;
 use App\Http\Controllers\IrtController;
+use App\Http\Controllers\dairyController;
 use App\Http\Controllers\KontenController;
 use App\Http\Controllers\AdminKontenController;
 use App\Http\Controllers\AnakController;
@@ -40,9 +41,9 @@ Route::middleware(['auth'])->group(function () {
 Route::middleware(['auth'])->group(function(){
   // edit data anak admin
     Route::get('/admin/create', [AdminController::class, 'create'])->name('admin.create');
+    Route::post('/admin', [AdminController::class, 'store'])->name('admin.store');
     Route::get('/admin/edit/{id}', [AdminController::class, 'edit'])->name('admin.edit');
     Route::patch('/admin/update/{id}', [AdminController::class, 'update'])->name('admin.update');
-    Route::post('/admin', [AdminController::class, 'store'])->name('admin.store');
     Route::delete('/admin/delete/{id}', [AdminController::class, 'delete'])->name('admin.delete');
    // konten admin
     Route::get('/admin/Admin-Konten/posting', function () {
@@ -64,7 +65,7 @@ Route::resource('articles', 'ArticleController');
 // Ahli Gizi
 Route::get('/ahligizi/konsultasi', [TiketKonsultasiController::class, 'index'])->name('tiket.index');
 Route::get('/ahligizi/konsultasi/chat/{id}', [TiketKonsultasiController::class, 'chatKonsultasi'])->name('tiket.chat');
-Route::post('/ahligizi/konsultasi/update/{id}', [TiketKonsultasiController::class, 'update'])->name('tiket.update');
+Route::post('ahligizi/konsultasi/chat/{id}', [TiketKonsultasiController::class, 'kirimPesan'])->name('kirim.pesan');
 Route::get('/ahligizi/konsultasi/filter', [TiketKonsultasiController::class, 'filteredKonsultasi'])->name('tiket.filter');
 
 Route::get('/ahligizi/konten/posting', function () {
@@ -76,22 +77,6 @@ Route::post('/ahligizi/konten/post', [KontenController::class, 'store'])->name('
 Route::get('/ahligizi/konten/edit/{id}', [KontenController::class, 'editKonten'])->name('konten.edit');
 Route::patch('/ahligizi/konten/update/{id}', [KontenController::class, 'update'])->name('konten.update');
 
-// irt
-Route::get('/dashboard', function () {
-    return view('irt.dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
-Route::get('/irt/artikel', function () {
-  return view('irt.artikel');
-})->middleware(['auth', 'verified'])->name('artikel');
-
-Route::get('/irt/diarykecil', function () {
-  return view('irt.diarykecil');
-})->middleware(['auth', 'verified'])->name('diarykecil');
-
-Route::get('/irt/konsultasiirt', function () {
-  return view('irt.konsultasiirt');
-})->middleware(['auth', 'verified'])->name('konsultasiirt');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -99,16 +84,16 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/irt/bacaartikel', function () {
-  return view('irt.bacaartikel');
-})->middleware(['auth', 'verified'])->name('bacaartikel');
-
-Route::get('/irt/addTiket', function () {
-  return view('irt.addTiket');
-})->middleware(['auth', 'verified'])->name('addTiket');
-
-Route::get('/irt/addDiary', function () {
-  return view('irt.addDiary');
-})->middleware(['auth', 'verified'])->name('addDiary');
-
+// irt
+Route::middleware(['auth'])->group(function () {
+  Route::get('/dashboard', function () {return view('irt.dashboard');});
+  Route::get('/irt/artikel', function () {return view('irt.artikel');});
+  Route::get('/irt/diarykecil', [dairyController::class, 'index'])->name('diarykecil.index');
+  Route::get('/irt/addDiary', [dairyController::class, 'create'])->name('diarykecil.create');
+  Route::post('/irt/addDiary', [dairyController::class, 'store'])->name('diarykecil.store');
+  Route::get('/irt/editDiary/{id}', [dairyController::class, 'edit'])->name('irt.editDiary');
+Route::patch('/irt/updateDiary/{id}', [dairyController::class, 'update'])->name('irt.updateDiary');
+  Route::get('/irt/bacaartikel', function () {return view('irt.bacaartikel');});
+  Route::get('/irt/addTiket', function () {return view('irt.addTiket');});
+});
 require __DIR__.'/auth.php';
