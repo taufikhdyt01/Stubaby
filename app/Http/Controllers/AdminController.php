@@ -4,14 +4,16 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\AdminController;
 use Illuminate\Http\Request;
 use App\Models\Anak;
+use App\Models\User;
 
 class AdminController extends Controller
 {
     public function index()
     {
+        $users = User::where('role', 'irt')->get();
         $anak = Anak::all(); // Mengambil semua data anak dari model Anak
 
-        return view('admin.Admin', compact('anak')); // Meneruskan data anak ke view 'Admin'
+        return view('admin.Admin', compact('anak','users')); // Meneruskan data anak ke view 'Admin'
     }
 
     public function dashboard()
@@ -20,7 +22,8 @@ class AdminController extends Controller
     }
     public function create()
     {
-        return view('admin.create');
+        $users = User::where('role', 'irt')->get();
+        return view('admin.create', compact('users'));
     }
 
     public function store(Request $request)
@@ -30,6 +33,8 @@ class AdminController extends Controller
             'tanggal_lahir' => 'required',
             'tinggi_badan' => 'required',
             'berat_badan' => 'required',
+            'catatan' => 'nullable',
+            'user_id' => 'required|exists:users,id',
         ]);
     
         Anak::create($request->all());    
@@ -40,9 +45,10 @@ class AdminController extends Controller
 
     public function edit($id)
     {
+        $users = User::where('role', 'irt')->get();
         $anak = Anak::find($id);
 
-        return view('admin.edit', compact('anak'));
+        return view('admin.edit', compact('anak','users'));
     }
 
     public function update(Request $request, $id)
@@ -53,6 +59,7 @@ class AdminController extends Controller
             'tinggi_badan' => 'required|numeric',
             'berat_badan' => 'required|numeric',
             'catatan' => 'nullable',
+            'user_id' => 'required|exists:users,id',
         ]);
 
         $anak = Anak::find($id);

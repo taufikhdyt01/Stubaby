@@ -38,7 +38,7 @@
 <table class="w-full border-collapse border border-gray-300">
     <thead>
         <tr>
-            
+        <th class="px-2 py-4 text-left bg-gray-200">Nama Ibu</th>
             <th class="px-2 py-4 text-left bg-gray-200">Nama Anak</th>
             <th class="px-2 py-4 text-left bg-gray-200">Tanggal Lahir</th>
             <th class="px-2 py-4 text-left bg-gray-200">Tinggi Badan</th>
@@ -50,6 +50,9 @@
     <tbody>
     @forelse ($anak as $anakItem)
     <tr>
+    <td class="px-6 py-4 whitespace-nowrap">
+    {{ $anakItem->user->name }}
+    </td>
         <td class="px-6 py-4 whitespace-nowrap">{{ $anakItem->nama_anak }}</td>
         <td class="px-6 py-4 whitespace-nowrap">{{ $anakItem->tanggal_lahir }}</td>
         <td class="px-6 py-4 whitespace-nowrap">{{ $anakItem->tinggi_badan }}</td>

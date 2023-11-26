@@ -49,5 +49,9 @@ class User extends Authenticatable
     {
         return $this->belongsTo(User::class, 'user_id');
     }
+    public function anak()
+    {
+        return $this->hasMany(Anak::class, 'user_id');
+    }
 
 }
