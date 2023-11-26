@@ -92,8 +92,10 @@ Route::middleware(['auth'])->group(function () {
   Route::get('/irt/addDiary', [dairyController::class, 'create'])->name('diarykecil.create');
   Route::post('/irt/addDiary', [dairyController::class, 'store'])->name('diarykecil.store');
   Route::get('/irt/editDiary/{id}', [dairyController::class, 'edit'])->name('irt.editDiary');
-Route::patch('/irt/updateDiary/{id}', [dairyController::class, 'update'])->name('irt.updateDiary');
+  Route::patch('/irt/updateDiary/{id}', [dairyController::class, 'update'])->name('irt.updateDiary');
   Route::get('/irt/bacaartikel', function () {return view('irt.bacaartikel');});
+  Route::get('/irt/konsultasi', function () {return view('irt.konsultasi');});
   Route::get('/irt/addTiket', function () {return view('irt.addTiket');});
+  
 });
 require __DIR__.'/auth.php';

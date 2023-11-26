@@ -43,7 +43,7 @@
                                         @csrf
                                         <span href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();">
                                             {{ __('Log Out') }}
-                                        </span>
+                                         </span>
                                     </form>
                                 </a>
                             </li>
@@ -70,7 +70,7 @@
                         <a href="/irt/diarykecil" class="block py-2 pr-4 pl-3 {{ $activeLink == 'diarykecil' ? 'text-yellow-400' : 'text-white' }} hover:text-yellow-400">DiaryKecil</a>
                     </li>
                     <li>
-                        <a href="/irt/konsultasiirt" class="block py-2 pr-4 pl-3 {{ $activeLink == 'konsultasi' ? 'text-yellow-400' : 'text-white' }} hover:text-yellow-400">Konsultasi</a>
+                        <a href="/irt/konsultasi" class="block py-2 pr-4 pl-3 {{ $activeLink == 'konsultasi' ? 'text-yellow-400' : 'text-white' }} hover:text-yellow-400">Konsultasi</a>
                     </li>
                     <li>
                         <a href="/irt/artikel" class="block py-2 pr-4 pl-3 {{ $activeLink == 'artikel' ? 'text-yellow-400' : 'text-white' }} hover:text-yellow-400">Artikel</a>
