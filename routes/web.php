@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AhliGiziController;
 use App\Http\Controllers\IrtController;
 use App\Http\Controllers\KontenController;
+use App\Http\Controllers\AdminKontenController;
 use App\Http\Controllers\AnakController;
 use App\Http\Controllers\TiketKonsultasiController;
 /*
@@ -37,12 +38,21 @@ Route::middleware(['auth'])->group(function () {
 
 // admin
 Route::middleware(['auth'])->group(function(){
+  // edit data anak admin
     Route::get('/admin/create', [AdminController::class, 'create'])->name('admin.create');
     Route::get('/admin/edit/{id}', [AdminController::class, 'edit'])->name('admin.edit');
+    Route::patch('/admin/update/{id}', [AdminController::class, 'update'])->name('admin.update');
     Route::post('/admin', [AdminController::class, 'store'])->name('admin.store');
     Route::delete('/admin/delete/{id}', [AdminController::class, 'delete'])->name('admin.delete');
-    Route::get('/admin/Admin-Konten',function () {return view('admin/Admin-Konten');});
-    Route::get('/Admin-Konsultasi',function () {return view('admin/Admin-Konsultasi');});
+   // konten admin
+    Route::get('/admin/Admin-Konten/posting', function () {
+      return view('admin/addAdminKonten');
+    })->name('addAdminKonten');
+    Route::get('/admin/Admin-Konten',[AdminKontenController::class, 'index'])->name('Admin-konten.index');
+    Route::post('/admin/Admin-Konten/post', [AdminKontenController::class, 'store'])->name('Admin-konten.store');
+    Route::get('/admin/Admin-Konten/edit/{id}', [AdminKontenController::class, 'editKonten'])->name('Admin-konten.edit');
+    Route::patch('/admin/Admin-Konten/update/{id}', [AdminKontenController::class, 'update_X'])->name('Admin-konten.update');
+    Route::delete('/konten/{id}', [AdminKontenController::class, 'deleteKonten'])->name('Admin-konten.delete');
   });
 
 Route::get('/choose', function () {
@@ -71,8 +81,6 @@ Route::get('/dashboard', function () {
     return view('irt.dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-// Route::get('/irt/artikel', [KontenController::class, 'index'])->name('artikel.index');
-
 Route::get('/irt/artikel', function () {
   return view('irt.artikel');
 })->middleware(['auth', 'verified'])->name('artikel');
@@ -91,5 +99,16 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::get('/irt/bacaartikel', function () {
+  return view('irt.bacaartikel');
+})->middleware(['auth', 'verified'])->name('bacaartikel');
+
+Route::get('/irt/addTiket', function () {
+  return view('irt.addTiket');
+})->middleware(['auth', 'verified'])->name('addTiket');
+
+Route::get('/irt/addDiary', function () {
+  return view('irt.addDiary');
+})->middleware(['auth', 'verified'])->name('addDiary');
 
 require __DIR__.'/auth.php';

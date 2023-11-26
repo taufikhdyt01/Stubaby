@@ -17,6 +17,8 @@
     </style>
 </head>
 <body class="font-sans bg-gray-100">
+    <!--header-->
+    @include('components-admin.header')
     <!-- Sidebar -->
     @include('components-admin.sidebar')
 
