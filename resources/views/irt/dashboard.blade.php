@@ -83,17 +83,13 @@
                     <h2 class="text-2xl font-semibold text-gray-700">
                         Baca Artikel Terbaru
                     </h2>
-                    <a href="irt/artikel" class="text-primary font-semibold hover:underline">
+                    <a href="/irt/artikel" class="text-primary font-semibold hover:underline">
                         Lihat Semua
                     </a>
                 </div>
                 <hr class="h-px my-2 bg-gray-200 border-0">
                 <!-- Artikel 2.1 -->
                 <div class="space-y-5 overflow-y-auto h-[300px] card-container">
-                    @include('components.artikelhome')
-                    @include('components.artikelhome')
-                    @include('components.artikelhome')
-                    @include('components.artikelhome')
                     @include('components.artikelhome')
                 </div>
             </div>

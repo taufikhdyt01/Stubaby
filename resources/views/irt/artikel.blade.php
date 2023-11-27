@@ -24,6 +24,7 @@
             Artikel StuBaby
         </h1>
         <!-- filter -->
+
         <!-- also tolong filter artikelnya juga bang -->
         <form action="{{ route('tiket.filter') }}" method="GET">
             <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only ">Search</label>
@@ -41,13 +42,6 @@
         <div class="flex flex-wrap -mx-1 lg:-mx-4">
 
             <!-- mungkin ini bisa dibuat jadi looping sebanyak 8x tetapi dengan berbeda artikel gituch -->
-            @include('components.artikel')
-            @include('components.artikel')
-            @include('components.artikel')
-            @include('components.artikel')
-            @include('components.artikel')
-            @include('components.artikel')
-            @include('components.artikel')
             @include('components.artikel')
     </div>
 

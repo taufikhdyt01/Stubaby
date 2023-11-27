@@ -10,6 +10,7 @@ use App\Http\Controllers\KontenController;
 use App\Http\Controllers\AdminKontenController;
 use App\Http\Controllers\AnakController;
 use App\Http\Controllers\TiketKonsultasiController;
+use App\http\Controllers\ArtikelController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -86,14 +87,14 @@ Route::middleware('auth')->group(function () {
 
 // irt
 Route::middleware(['auth'])->group(function () {
-  Route::get('/dashboard', function () {return view('irt.dashboard');});
-  Route::get('/irt/artikel', function () {return view('irt.artikel');});
+  Route::get('/irt/dashboard', [ArtikelController::class, 'index'])->name('articles');
+  Route::get('/irt/artikel', [ArtikelController::class, 'card'])->name('articles');
   Route::get('/irt/diarykecil', [dairyController::class, 'index'])->name('diarykecil.index');
   Route::get('/irt/addDiary', [dairyController::class, 'create'])->name('diarykecil.create');
   Route::post('/irt/addDiary', [dairyController::class, 'store'])->name('diarykecil.store');
   Route::get('/irt/editDiary/{id}', [dairyController::class, 'edit'])->name('irt.editDiary');
 Route::patch('/irt/updateDiary/{id}', [dairyController::class, 'update'])->name('irt.updateDiary');
-  Route::get('/irt/bacaartikel', function () {return view('irt.bacaartikel');});
+  Route::get('/irt/bacaartikel/{id}', [ArtikelController::class, 'show'])->name('irt.bacaartikel');
   Route::get('/irt/addTiket', function () {return view('irt.addTiket');});
 });
 require __DIR__.'/auth.php';
