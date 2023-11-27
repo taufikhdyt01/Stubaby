@@ -6,13 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite('resources/css/app.css')
     <title>Masuk StuBaby</title>
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 </head>
 
 <body class="font-poppins">
     <section>
         <section class="bg-[#FCFCFC]">
-            <div class="grid grid-cols-2">
-                <div class="">
+            <div class="grid lg:grid-cols-2 md:grid-cols-2">
+                <div class="hidden lg:block md:block">
                     <img src="{{ asset('/img/img_masuk.svg') }}" alt="">
                 </div>
                 <div class="flex flex-col items-center justify-center px-6 py-8  lg:py-0">
