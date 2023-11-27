@@ -13,7 +13,7 @@
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 </head>
 
-<body class="font-poppins">
+<body class="font-poppins my-auto">
     <header class="bg-transparent">
         <nav class=" px-4 lg:px-6 py-2.5 ">
             <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
@@ -59,7 +59,7 @@
         </div>
 
         <!-- 2 -->
-        <div class="flex mx-32 my-32 space-x-20">
+        <div class="lg:flex md:flex lg:mx-32 md:mx-16 my-32 space-x-20">
             <img src="{{ asset('/img/img_landing1.svg') }}" alt="">
             <div>
                 <h2 class="text-[38px] font-bold">Apa itu</h2>
@@ -105,7 +105,7 @@
                     </div>
                     <!-- 3.3 -->
                     <div class="bg-white rounded-xl w-[350px] py-8 px-16 ">
-                        <img class="w-auto h-[165px]" src="{{ asset('/img/img_artikel.svg') }}" alt="">
+                        <img class="w-auto h-[165px] mx-auto" src="{{ asset('/img/img_artikel.svg') }}" alt="">
                         <h5 class="text-[24px] font-bold mt-6">
                             Artikel
                         </h5>
@@ -123,9 +123,9 @@
             <h2 class="font-bold text-[36px] text-center">
                 Kenapa Harus <span class="text-primary">StuBaby</span> ?
             </h2>
-            <div class="flex mt-[50px] space-x-20">
+            <div class="lg:flex md:flex  mt-[50px] space-x-20">
                 <img src="{{ asset('/img/img_landing2.svg') }}" alt="">
-                <div class="space-y-14">
+                <div class="lg:space-y-14 md:space-y-7 space-y-5">
                     <!-- 4.1 -->
                     <div class="flex space-x-8">
                         <div class="text-[40px] text-primary font-bold">
