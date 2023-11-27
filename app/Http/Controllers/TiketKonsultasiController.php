@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use App\Models\TiketKonsultasi;
 use App\Models\PesanTiketKonsultasi;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Events\SendMessageEvent;
 
@@ -18,8 +19,9 @@ class TiketKonsultasiController extends Controller
             $tiketKonsultasis = TiketKonsultasi::where('id_ahligizi', $user->id)->get();
             return view('ahliGizi.konsultasi', ['tiketKonsultasis' => $tiketKonsultasis]);
         } elseif ($user->role === 'irt') {
+            $users = User::where('role', 'ahliGizi')->get();
             $tiketKonsultasis = TiketKonsultasi::where('id_irt', $user->id)->get();
-            return view('irt.konsultasi', ['tiketKonsultasis' => $tiketKonsultasis]);
+            return view('irt.konsultasi', compact('tiketKonsultasis', 'users'));
         }
     }
 
@@ -89,11 +91,28 @@ class TiketKonsultasiController extends Controller
 
         // Mengembalikan view yang menampilkan tiket dan pesan terkini
         if ($user->role === 'ahliGizi') {
-            return view('ahliGizi.chatKonsultasi', compact('tiket', 'pesanTerkini','chats'));
+            return view('ahliGizi.chatKonsultasi', compact('tiket', 'pesanTerkini', 'chats'));
         } elseif ($user->role === 'irt') {
-            return view('irt.chatKonsultasi', compact('tiket', 'pesanTerkini','chats'));
+            return view('irt.chatKonsultasi', compact('tiket', 'pesanTerkini', 'chats'));
         }
-        
+
+    }
+
+    public function buatTiket(Request $request)
+    {
+        $validatedData = $request->validate([
+            'judul_tiket' => 'required|string',
+            'pilih_ahli_gizi' => 'required|exists:users,id',
+        ]);
+
+        $tiket = TiketKonsultasi::create([
+            'judul_tiket' => $validatedData['judul_tiket'],
+            'status' => 'Pending', 
+            'id_ahligizi' => $validatedData['pilih_ahli_gizi'],
+            'id_irt' => auth()->id(), 
+        ]);
+
+        return redirect()->route('tiket.chat.irt', ['id' => $tiket->id]);
     }
 
 }

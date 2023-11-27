@@ -1,10 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-.card-container:{
-    
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 /* width */
 .card-container::-webkit-scrollbar {

@@ -91,7 +91,7 @@ Route::middleware(['auth'])->group(function () {
   Route::patch('/irt/updateDiary/{id}', [dairyController::class, 'update'])->name('irt.updateDiary');
   Route::get('/irt/bacaartikel', function () {return view('irt.bacaartikel');});
   Route::get('/irt/konsultasi', [TiketKonsultasiController::class, 'index'])->name('irt.konsultasi');
-  Route::get('/irt/addTiket', function () {return view('irt.addTiket');});
+  Route::post('/irt/konsultasi/create', [TiketKonsultasiController::class, 'buatTiket'])->name('tiket.create');
   Route::get('/irt/konsultasi/chat/{id}', [TiketKonsultasiController::class, 'chatKonsultasi'])->name('tiket.chat.irt');
   Route::post('/irt/konsultasi/chat/{id}', [TiketKonsultasiController::class, 'kirimPesan'])->name('kirim.pesan.irt');
 
