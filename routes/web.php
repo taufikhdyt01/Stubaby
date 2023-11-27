@@ -28,7 +28,7 @@ Route::get('/', function () {
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
-    Route::get('/ahliGizi/dashboard', [AhliGiziController::class, 'index'])->name('ahliGizi.dashboard');
+    Route::get('/ahligizi/dashboard', [AhliGiziController::class, 'index'])->name('ahliGizi.dashboard');
     Route::get('/irt/dashboard', [IRTController::class, 'dashboard'])->name('irt.dashboard');
 });
 
@@ -65,7 +65,7 @@ Route::post('ahligizi/konsultasi/chat/{id}', [TiketKonsultasiController::class, 
 Route::put('ahligizi/konsultasi/chat/{id}', [TiketKonsultasiController::class, 'update'])->name('tiket.update');
 Route::get('/ahligizi/konsultasi/filter', [TiketKonsultasiController::class, 'filteredKonsultasi'])->name('tiket.filter');
 
-Route::get('/ahligizi/konten/posting', function () {
+Route::get('/ahligizi/konten/post', function () {
   return view('ahliGizi/addKonten');
 })->name('addKonten');
 
@@ -83,7 +83,6 @@ Route::middleware('auth')->group(function () {
 
 // irt
 Route::middleware(['auth'])->group(function () {
-  Route::get('/dashboard', function () {return view('irt.dashboard');});
   Route::get('/irt/artikel', function () {return view('irt.artikel');});
   Route::get('/irt/diarykecil', [dairyController::class, 'index'])->name('diarykecil.index');
   Route::get('/irt/addDiary', [dairyController::class, 'create'])->name('diarykecil.create');
