@@ -93,23 +93,26 @@
                     @include('components.artikelhome')
                 </div>
             </div>
-
-            <!-- 3 -->
-            <div class="bg-white p-4 shadow-md rounded-lg my-5">
-                <div class="flex flex-auto align-text-bottom items-end justify-between">
-                    <h2 class="text-2xl font-semibold text-gray-700">
-                        Tiket Konsultasi
-                    </h2>
-                    <a href="irt/artikel" class="text-primary font-semibold hover:underline">
-                        Lihat Semua
-                    </a>
-                </div>
-                <hr class="h-px my-2 bg-gray-200 border-0">
-                <div class="overflow-y-auto h-[300px] card-container">
-                    @include('components.tikethome')
-                    @include('components.tikethome')
-                    @include('components.tikethome')
-                    @include('components.tikethome')
+            <!-- kiri -->
+            <div class="basis-1/2">
+                <div class="bg-white p-4 shadow-md rounded-lg my-5">
+                    <div class="flex flex-auto align-text-bottom items-end justify-between">
+                        <h2 class="lg:text-2xl md:text-xl text-lg font-semibold text-gray-700">
+                            Tiket Konsultasi
+                        </h2>
+                        <a href="irt/artikel" class="text-primary font-semibold hover:underline lg:text-base text-xs md:text-sm">
+                            Lihat Semua
+                        </a>
+                    </div>
+                    <hr class="h-px my-2 bg-gray-200 border-0">
+                    <div class="overflow-y-auto h-[450px] card-container">
+                        @include('components.tikethome')
+                        @include('components.tikethome')
+                        @include('components.tikethome')
+                        @include('components.tikethome')
+                        @include('components.tikethome')
+                        @include('components.tikethome')
+                    </div>
                 </div>
             </div>
         </div>

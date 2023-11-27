@@ -40,10 +40,15 @@
                             <div class="flex items-center space-x-4">
                                 <span class="text-gray-500">Tanggal</span>
                                 <div class="relative">
-                                    <input id="date-input" type="text" class="py-2 px-4 border border-gray-300 rounded-md w-48" placeholder="DD/MM/YYYY">
-                                    <div id="calendar-icon" class="absolute top-0 right-0 mt-2 mr-3 text-gray-400 cursor-pointer">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
+                                    <input id="date-input" type="text"
+                                        class="py-2 px-4 border border-gray-300 rounded-md w-48"
+                                        placeholder="DD/MM/YYYY">
+                                    <div id="calendar-icon"
+                                        class="absolute top-0 right-0 mt-2 mr-3 text-gray-400 cursor-pointer">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
                                         </svg>
                                     </div>
                                 </div>
@@ -55,14 +60,18 @@
                                     </select>
                                 </div>
                                 <div class="relative mx-5">
-                                    <input name="search" type="text" class="py-2 px-4 border border-gray-300 rounded-md w-96" placeholder="Cari">
+                                    <input name="search" type="text"
+                                        class="py-2 px-4 border border-gray-300 rounded-md w-96" placeholder="Cari">
                                     <div class="absolute top-0 right-0 mt-2 mr-3 text-gray-400">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
                                         </svg>
                                     </div>
                                 </div>
-                                <button type="submit" class="bg-indigo-500 text-white py-2 px-4 rounded-md">Terapkan</button>
+                                <button type="submit"
+                                    class="bg-indigo-500 text-white py-2 px-4 rounded-md">Terapkan</button>
                             </div>
                         </div>
                     </div>
@@ -83,23 +92,28 @@
                         </thead>
                         <tbody>
                             @foreach ($tiketKonsultasis as $tiket)
-                            <tr>
-                                <td class="py-2 px-4">{{ $tiket->created_at->format('d F Y, H:i') }}</td>
-                                <td class="py-2 px-4">{{ $tiket->id_tiket }}</td>
-                                <td class="py-2 px-4">{{ $tiket->judul_tiket }}</td>
-                                <td class="py-2 px-4">{{ $tiket->pengirim }}</td>
-                                <td class="py-2 px-4 text-center">
-                                    <span class="py-1 px-2 rounded-full {{ $tiket->status === 'Selesai' ? 'bg-green-500 text-white' : 'bg-yellow-500 text-white' }} text-xs">{{ $tiket->status }}</span>
-                                </td>
-                                <td class="py-2 px-4 text-center">
-                                    <a href="#" onclick="window.location.href='{{ route('tiket.chat', ['id' => $tiket->id]) }}';">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
-                                            <path d="M21.731 2.269a2.625 2.625 0 00-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 000-3.712zM19.513 8.199l-3.712-3.712-8.4 8.4a5.25 5.25 0 00-1.32 2.214l-.8 2.685a.75.75 0 00.933.933l2.685-.8a5.25 5.25 0 002.214-1.32l8.4-8.4z" />
-                                            <path d="M5.25 5.25a3 3 0 00-3 3v10.5a3 3 0 003 3h10.5a3 3 0 003-3V13.5a.75.75 0 00-1.5 0v5.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5V8.25a1.5 1.5 0 011.5-1.5h5.25a.75.75 0 000-1.5H5.25z" />
-                                        </svg>
-                                    </a>
-                                </td>
-                            </tr>
+                                <tr>
+                                    <td class="py-2 px-4">{{ $tiket->created_at->format('d F Y, H:i') }}</td>
+                                    <td class="py-2 px-4">{{ $tiket->id }}</td>
+                                    <td class="py-2 px-4">{{ $tiket->judul_tiket }}</td>
+                                    <td class="py-2 px-4">{{ $tiket->pengirim }}</td>
+                                    <td class="py-2 px-4 text-center">
+                                        <span
+                                            class="py-1 px-2 rounded-full {{ $tiket->status === 'Selesai' ? 'bg-green-500 text-white' : 'bg-yellow-500 text-white' }} text-xs">{{ $tiket->status }}</span>
+                                    </td>
+                                    <td class="py-2 px-4 text-center">
+                                        <a href="#"
+                                            onclick="window.location.href='{{ route('tiket.chat', ['id' => $tiket->id]) }}';">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                                fill="currentColor" class="w-6 h-6">
+                                                <path
+                                                    d="M21.731 2.269a2.625 2.625 0 00-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 000-3.712zM19.513 8.199l-3.712-3.712-8.4 8.4a5.25 5.25 0 00-1.32 2.214l-.8 2.685a.75.75 0 00.933.933l2.685-.8a5.25 5.25 0 002.214-1.32l8.4-8.4z" />
+                                                <path
+                                                    d="M5.25 5.25a3 3 0 00-3 3v10.5a3 3 0 003 3h10.5a3 3 0 003-3V13.5a.75.75 0 00-1.5 0v5.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5V8.25a1.5 1.5 0 011.5-1.5h5.25a.75.75 0 000-1.5H5.25z" />
+                                            </svg>
+                                        </a>
+                                    </td>
+                                </tr>
                             @endforeach
                         </tbody>
                     </table>

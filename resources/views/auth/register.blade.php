@@ -6,11 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite('resources/css/app.css')
     <title>Daftar StuBaby</title>
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 </head>
 
 <body class="font-poppins">
     <section class="bg-gray-50">
-        <div class="grid grid-cols-2">
+        <div class="grid lg:grid-cols-2 md:grid-cols-2">
             <div class="flex flex-col items-center justify-center px-6 py-8 md:h-screen lg:py-0">
                 <a href="#" class="flex items-center mb-6 text-2xl font-semibold text-primary ">
                     <img class="w-8 h-8 mr-2" src="{{ asset('/img/logo.svg') }}" alt="logo">
@@ -60,7 +61,7 @@
                     </div>
                 </div>
             </div>
-            <div class="">
+            <div class="hidden lg:block md:block">
                 <img src="{{ asset('/img/img_daftar.svg') }}" alt="">
             </div>
         </div>

@@ -26,9 +26,9 @@
       
         <!-- Content -->
         <main class="h-full overflow-y-auto">
-        
+          
             <div class="bg-white p-4 shadow-md rounded-lg my-5 mx-20">
-  <h2 class="text-xl font-semibold text-gray-700 mb-4">Update Data</h2>
+  <h2 class="text-xl font-semibold text-gray-700 mb-4">Update Data Anak</h2>
   <form method="post" action="{{ route('admin.update', $anak->id) }}?success" enctype="multipart/form-data" onsubmit="showSuccessPopup()">
     @csrf
     @method('PATCH')

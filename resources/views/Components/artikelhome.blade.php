@@ -12,6 +12,7 @@
             {{ Str::limit($article->content, 50) }}<br>
             <a href="{{ route('irt.bacaartikel', $article->id) }}">Baca Selengkapnya</a>
             <hr>
+
             </div>
         </div>
     </a>

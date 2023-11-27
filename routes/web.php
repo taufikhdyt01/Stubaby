@@ -29,12 +29,8 @@ Route::get('/', function () {
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
-    Route::get('/ahliGizi/dashboard', [AhliGiziController::class, 'index'])->name('ahliGizi.dashboard');
+    Route::get('/ahligizi/dashboard', [AhliGiziController::class, 'index'])->name('ahliGizi.dashboard');
     Route::get('/irt/dashboard', [IRTController::class, 'dashboard'])->name('irt.dashboard');
-    Route::get('/chat/user/{user}', [App\Http\Controllers\ChatController::class, 'chat'])->name('chat');
-    Route::get('/chat/room/{room}', [App\Http\Controllers\ChatController::class, 'room'])->name('chat.room');
-    Route::get('/chat/get/{room}', [App\Http\Controllers\ChatController::class, 'getChat'])->name('chat.get');
-    Route::post('/chat/send', [App\Http\Controllers\ChatController::class, 'sendChat'])->name('chat.send');
 });
 
 
@@ -66,10 +62,11 @@ Route::resource('articles', 'ArticleController');
 // Ahli Gizi
 Route::get('/ahligizi/konsultasi', [TiketKonsultasiController::class, 'index'])->name('tiket.index');
 Route::get('/ahligizi/konsultasi/chat/{id}', [TiketKonsultasiController::class, 'chatKonsultasi'])->name('tiket.chat');
-Route::post('/ahligizi/konsultasi/update/{id}', [TiketKonsultasiController::class, 'update'])->name('tiket.update');
+Route::post('ahligizi/konsultasi/chat/{id}', [TiketKonsultasiController::class, 'kirimPesan'])->name('kirim.pesan');
+Route::put('ahligizi/konsultasi/chat/{id}', [TiketKonsultasiController::class, 'update'])->name('tiket.update');
 Route::get('/ahligizi/konsultasi/filter', [TiketKonsultasiController::class, 'filteredKonsultasi'])->name('tiket.filter');
 
-Route::get('/ahligizi/konten/posting', function () {
+Route::get('/ahligizi/konten/post', function () {
   return view('ahliGizi/addKonten');
 })->name('addKonten');
 
@@ -93,8 +90,11 @@ Route::middleware(['auth'])->group(function () {
   Route::get('/irt/addDiary', [dairyController::class, 'create'])->name('diarykecil.create');
   Route::post('/irt/addDiary', [dairyController::class, 'store'])->name('diarykecil.store');
   Route::get('/irt/editDiary/{id}', [dairyController::class, 'edit'])->name('irt.editDiary');
-Route::patch('/irt/updateDiary/{id}', [dairyController::class, 'update'])->name('irt.updateDiary');
+  Route::patch('/irt/updateDiary/{id}', [dairyController::class, 'update'])->name('irt.updateDiary');
   Route::get('/irt/bacaartikel/{id}', [ArtikelController::class, 'show'])->name('irt.bacaartikel');
-  Route::get('/irt/addTiket', function () {return view('irt.addTiket');});
+  Route::get('/irt/konsultasi', [TiketKonsultasiController::class, 'index'])->name('irt.konsultasi');
+  Route::post('/irt/konsultasi/create', [TiketKonsultasiController::class, 'buatTiket'])->name('tiket.create');
+  Route::get('/irt/konsultasi/chat/{id}', [TiketKonsultasiController::class, 'chatKonsultasi'])->name('tiket.chat.irt');
+  Route::post('/irt/konsultasi/chat/{id}', [TiketKonsultasiController::class, 'kirimPesan'])->name('kirim.pesan.irt');
 });
 require __DIR__.'/auth.php';
