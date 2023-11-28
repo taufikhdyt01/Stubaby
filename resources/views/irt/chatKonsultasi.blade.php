@@ -39,7 +39,7 @@
         </div>
     </div>
     <!-- Content -->
-    <main class="h-full overflow-y-auto pb-16">
+    <main class="h-full overflow-y-auto pb-16 mt-28 mb-5">
 
         <div class="w-full">
             <div id="chat-container" class="mt-2 space-y-2">
