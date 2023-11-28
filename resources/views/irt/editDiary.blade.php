@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>edit</title>
+    <title>Edit Data Anak</title>
     <link href="https://fonts.googleapis.com/css?family=Nunito:400,700,800" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
@@ -12,9 +12,11 @@
     <script src="{{ asset('js/init-alpine.js') }}"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
   </head>
   <body>
+    <!-- Header -->
+    @include('components.headerirt', ['activeLink' => 'diarykecil'])
     <div class="flex h-screen bg-gray-50" :class="{ 'overflow-hidden': isSideMenuOpen }">
     
     
@@ -60,7 +62,7 @@
     </div>
 
     <div class="mt-4">
-      <button type="submit" @click.prevent="showNotification" class="bg-indigo-500 text-white py-2 px-4 rounded-lg">simpan data</button>
+      <button type="submit" @click.prevent="showNotification" class="bg-indigo-500 text-white py-2 px-4 rounded-lg">Simpan data</button>
     </div>
   </form>
 </div>
@@ -71,37 +73,6 @@
     </div>
   </div>
   <script>
-  function getFormattedDate() {
-    const today = new Date();
-    const day = String(today.getDate());
-    const monthNames = [
-      "Januari", "Februari", "Maret", "April", "Mei", "Juni",
-      "Juli", "Agustus", "September", "Oktober", "November", "Desember"
-    ];
-    const month = monthNames[today.getMonth()];
-    const year = today.getFullYear();
-    return `${day} ${month} ${year}`;
-  }
-
-  document.getElementById('tanggal').textContent = getFormattedDate();
-
-  document.addEventListener('DOMContentLoaded', function () {
-    const dateInput = document.querySelector('#date-input'); 
-    const calendarIcon = document.querySelector('#calendar-icon'); 
-
-    flatpickr(dateInput, {
-      altInput: true,
-      altFormat: 'd/m/Y',
-      dateFormat: 'Y-m-d',
-      onClose: function (selectedDates, dateStr, instance) {
-        console.log(dateStr); 
-      },
-    });
-
-    calendarIcon.addEventListener('click', function () {
-      dateInput._flatpickr.open();
-    });
-  });
 
   function data() {
     return {
@@ -117,7 +88,7 @@
 
   // Show success pop-up and redirect to the content page
   function showSuccessPopup() {
-        alert('data berhasil diedit!');
+        alert('Data berhasil diedit!');
         window.location.href = "{{ route('konten.index') }}";
     }
 

@@ -27,8 +27,8 @@
     <div class="bg-white p-4 shadow-md rounded-lg my-5 lg:mx-20 md:mx-10 items-center align-middle">
         <div class="flex flex-auto justify-between">
             <h2 class="lg:text-xl md:text-lg text-base font-semibold text-gray-700 mb-4">Daftar Tiket Konsultasi</h2>
-            <a href="/irt/addTiket" class="items-center align-middle">
-                <button
+            <a href="#" class="items-center align-middle">
+                <button data-modal-target="crud-modal" data-modal-toggle="crud-modal"
                     class="bg-primary font-semibold flex flex-auto rounded-lg text-white px-5 py-[5.5px] text-sm md:text-lg ld:text-xl ">
                     Buat Tiket Baru
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -80,7 +80,48 @@
         </div>
     </div>
 
+    <!-- Main modal -->
+    <div id="crud-modal" tabindex="-1" aria-hidden="true"
+        class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+        <div class="relative p-4 w-full max-w-md max-h-full">
+            <!-- Modal content -->
+            <form action="{{ route('tiket.create') }}" method="POST">
+                @csrf
+                <div
+                    class="bg-white lg:mx-8 md:mx-4 mx-2 lg:my-8 md:my-4 my-2 space-y-2 lg:space-y-3 md:space-y-2 lg:px-8 md:px-4 px-2 lg:py-6 md:py-4 py-2">
+                    <h1 class="lg:font-bold md:font-bold font-bold lg:text-2xl md:text-xl text-lg text-center">Buat
+                        Tiket Konsultasi</h1>
+                    <hr class="h-px my-2 bg-gray-200 border-0">
+                    <!-- judul tiket -->
+                    <div>
+                        <label for="judul_tiket"
+                            class="block text-gray-700 font-bold lg:text-lg md:text-base text-sm">Judul Tiket:</label>
+                        <textarea id="judul_tiket" name="judul_tiket" rows="2" class="w-full border border-gray-300 rounded-md p-2"></textarea>
+                    </div>
+                    <!-- pilih ahli gizi -->
+                    <div>
+                        <label for="pilih_ahli_gizi"
+                            class="block text-gray-700 font-bold lg:text-lg md:text-base text-sm">Pilih ahli
+                            gizi:</label>
+                        <select id="pilih_ahli_gizi" name="pilih_ahli_gizi"
+                            class="w-full border border-gray-300 rounded-md p-2">
+                            <option selected disabled>Pilih Ahli Gizi</option>
+                            @foreach ($users as $user)
+                                <option value="{{ $user->id }}">{{ $user->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
 
+                    <!-- Tombol -->
+                    <div class="pt-3 lg:mx-4 md:mx-2 font-bold">
+                        <button type="submit" class="bg-primary text-white py-2 px-4 rounded-lg w-full">Buat
+                            Tiket</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    </div>
     <!-- Footer -->
     @include('components.footer')
 </body>

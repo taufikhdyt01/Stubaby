@@ -10,13 +10,12 @@ class TiketKonsultasi extends Model
     use HasFactory;
 
     protected $fillable = [
-        'id_tiket',
         'judul_tiket',
         'pengirim',
+        'penerima',
         'status',
         'id_ahligizi',
         'id_irt',
-        'solusi',
     ];
 
     public function irt()
