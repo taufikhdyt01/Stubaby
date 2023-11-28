@@ -37,6 +37,7 @@ Route::middleware(['auth'])->group(function () {
 // admin
 Route::middleware(['auth'])->group(function(){
   // edit data anak admin
+  Route::get('/admin/anak', [AdminController::class, 'anak'])->name('admin.anak');
     Route::get('/admin/create', [AdminController::class, 'create'])->name('admin.create');
     Route::post('/admin', [AdminController::class, 'store'])->name('admin.store');
     Route::get('/admin/edit/{id}', [AdminController::class, 'edit'])->name('admin.edit');
