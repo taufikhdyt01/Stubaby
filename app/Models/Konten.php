@@ -13,5 +13,9 @@ class Konten extends Model
     protected $table = 'konten';
 
     protected $fillable = ['judul', 'attachment', 'content', 'media', 'user_id'];
-
+    
+    public function author()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }
