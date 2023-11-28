@@ -5,7 +5,7 @@
     <nav class="px-4 lg:px-6 py-2.5 ">
         <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
             <!-- logo -->
-            <a href="https://flowbite.com" class="flex items-center">
+            <a href="#" class="flex items-center">
                 <img class="w-10" src="{{ asset('img/logo putih.svg') }}" class="mr-3 h-6 sm:h-9" alt="StuBaby Logo">
                 <span class="self-center text-xl font-semibold whitespace-nowrap text-white px-2">StuBaby</span>
             </a>
