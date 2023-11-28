@@ -17,7 +17,7 @@
 
 <body class="bg-[#F8F8F8]">
     <!-- header -->
-    @include('components.headerirt', ["activeLink" => "dashboard"])
+    @include('components.headerirt', ['activeLink' => 'dashboard'])
 
     <!-- section -->
     <div class="lg:flex lg:flex-auto md:flex md:flex-auto justify-between align-middle">
@@ -25,49 +25,45 @@
         <!-- 1 -->
         <div class="bg-white p-4 shadow-md rounded-lg my-5 lg:ml-20 md:ml-10 basis-3/5">
             <!-- tanggal hari ini -->
-            <h2 class="text-2xl font-semibold text-gray-700 mb-4">Hari ini, 28 September 2023</h2>
-            <hr class="h-px my-2 bg-gray-200 border-0">
-            <div class="flex flex-auto justify-between items-center align-middle text-center">
-                <!-- bulan -->
-                <h2 class="text-xl font-semibold text-gray-700">September 2023</h2>
-                <div class="">
-                    <button>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
-                        </svg>
-                    </button>
-                    <button>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-                        </svg>
-
-                    </button>
-                </div>
-
-            </div>
+            <h2 class="text-2xl font-semibold text-gray-700 mb-4">Hari ini,
+                {{ \Carbon\Carbon::now()->translatedFormat('j F Y') }}</h2>
             <hr class="h-px my-2 bg-gray-200 border-0">
             <div class="overflow-x-auto">
 
                 <table class="w-full border-collapse border border-gray-300">
                     <thead>
                         <tr>
-                            <th class="py-2 px-4 bg-purple-200 text-left">Tanggal</th>
-                            <th class="py-2 px-4 bg-purple-200 text-left">Status</th>
-                            <th class="py-2 px-4 bg-purple-200 text-left">Nama Anak</th>
-                            <th class="py-2 px-4 bg-purple-200 text-left">Berat Badan</th>
-                            <th class="py-2 px-4 bg-purple-200 text-left">Tinggi Badan</th>
+                            <th class="py-2 px-4 bg-purple-200 text-center">Tanggal Lahir</th>
+                            <th class="py-2 px-4 bg-purple-200 text-center">Nama Anak</th>
+                            <th class="py-2 px-4 bg-purple-200 text-center">Berat Badan</th>
+                            <th class="py-2 px-4 bg-purple-200 text-center">Tinggi Badan</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- tofik, ocit, isi data tabel disini -->
+                        @forelse ($anak as $anakItem)
+                            <tr>
+                                <td class="py-2 px-4 whitespace-nowrap text-center">
+                                    {{ \Carbon\Carbon::parse($anakItem->tanggal_lahir)->locale('id')->isoFormat('D MMMM YYYY') }}
+                                </td>
+                                <td class="py-2 px-4 whitespace-nowrap text-center">{{ $anakItem->nama_anak }}</td>
+                                <td class="py-2 px-4 whitespace-nowrap text-center">{{ $anakItem->berat_badan }} kg
+                                </td>
+                                <td class="py-2 px-4 whitespace-nowrap text-center">{{ $anakItem->tinggi_badan }} cm
+                                </td>
+                            @empty
+                            <tr>
+                                <td colspan="6" class="px-6 py-4 whitespace-nowrap">Tidak ada data anak.</td>
+                            </tr>
+                        @endforelse
                     </tbody>
                 </table>
             </div>
             <hr class="h-px my-2 bg-gray-200 border-0">
-            <a href="#">
+            <a href="/irt/addDiary">
                 <button class="bg-primary font-semibold flex flex-auto rounded-lg text-white px-5 py-2">
                     Tambah Informasi
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-6 h-6">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                     </svg>
                 </button>
@@ -100,7 +96,8 @@
                         <h2 class="lg:text-2xl md:text-xl text-lg font-semibold text-gray-700">
                             Tiket Konsultasi
                         </h2>
-                        <a href="irt/artikel" class="text-primary font-semibold hover:underline lg:text-base text-xs md:text-sm">
+                        <a href="irt/artikel"
+                            class="text-primary font-semibold hover:underline lg:text-base text-xs md:text-sm">
                             Lihat Semua
                         </a>
                     </div>

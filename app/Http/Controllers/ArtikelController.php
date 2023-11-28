@@ -8,11 +8,6 @@ use Illuminate\Support\Str;
 
 class ArtikelController extends Controller
 {
-    public function index()
-    {
-        $articles = Konten::all(); // Ambil semua data artikel dari database
-        return view('irt.dashboard', compact('articles'));
-    }
     public function show($id)
     {
         $articles = Konten::all();

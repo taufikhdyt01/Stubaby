@@ -84,7 +84,6 @@ Route::middleware('auth')->group(function () {
 
 // irt
 Route::middleware(['auth'])->group(function () {
-  Route::get('/irt/dashboard', [ArtikelController::class, 'index'])->name('articles');
   Route::get('/irt/artikel', [ArtikelController::class, 'card'])->name('articles');
   Route::get('/irt/diarykecil', [dairyController::class, 'index'])->name('diarykecil.index');
   Route::get('/irt/addDiary', [dairyController::class, 'create'])->name('diarykecil.create');
