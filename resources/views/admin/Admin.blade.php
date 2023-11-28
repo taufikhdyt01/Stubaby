@@ -53,7 +53,7 @@
     <tbody>
     @forelse ($anak as $anakItem)
     <tr>
-    <td class="px-6 py-4 whitespace-nowrap">
+    <td class="px-6 py-4 text-center whitespace-nowrap">
     {{ $anakItem->user->name }}
     </td>
         <td class="px-6 py-4 text-center whitespace-nowrap">{{ $anakItem->nama_anak }}</td>
