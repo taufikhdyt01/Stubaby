@@ -25,8 +25,6 @@
         </h1>
         <!-- filter -->
 
-        <!-- also tolong filter artikelnya juga bang -->
-        
         <!-- artikel2 -->
         <div class="flex flex-wrap -mx-1 lg:-mx-4">
 
