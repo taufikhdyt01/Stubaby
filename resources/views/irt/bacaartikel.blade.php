@@ -30,7 +30,8 @@
                 Ditinjau oleh <span class="text-purple-400">{{ \App\Models\User::find($x->user_id)->name }}</span> <br> <span> {{ $x->updated_at }}</span>
             </p>
             <!-- gambar artikel -->
-            <img src="{{ $x->media }}" class="w-[500px] my-6" alt="">
+            
+<img src="{{asset('storage/'.$x->image)}}" alt="Image"class="w-[500px] my-6">
             <p><strong>Attachment:</strong> {{ $x->attachment }}</p>
             <!-- isi artikel -->
             <p class="font-medium text-blue-950">

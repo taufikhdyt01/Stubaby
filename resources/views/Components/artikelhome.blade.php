@@ -4,9 +4,6 @@
     <a href="#">
         <div class="flex flex-auto">
             
-        @if ($article->media)
-    <img src="data:image/png;base64,{{ base64_encode($article->media) }}" alt="Article Media">
-@endif
             <div class="flex flex-col justify-between mx-3">
             <strong>{{ $article->judul }}</strong> <br>
             {{ Str::limit($article->content, 50) }}<br>

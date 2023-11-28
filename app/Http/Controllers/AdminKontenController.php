@@ -18,15 +18,23 @@ class AdminKontenController extends Controller
     public function store(Request $request)
     {
         // Validasi input dan proses lainnya
-
+        $request->validate([
+            'image'=>'image'
+        ]);
         // Buat instance Konten
         $konten = new Konten([
             'judul' => $request->judul_artikel,
             'attachment' => $request->attachment,
             'content' => $request->isi_artikel,
+            'image'=> $request->image,
             'media' => $request->upload_foto,
             'user_id' => auth()->user()->id, // Gunakan ID pengguna yang sedang login
         ]);
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('post-images');
+            $konten->image = $imagePath;
+            $konten->save();
+        }
 
         // Simpan artikel
         $konten->save();

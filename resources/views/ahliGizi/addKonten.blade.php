@@ -58,7 +58,7 @@
 
                         <div class="mt-4">
                             <label for="upload_foto" class="block text-gray-700">Upload Foto:</label>
-                            <input type="file" id="upload_foto" name="upload_foto"
+                            <input type="file" id="image" name="image"
                                 class="border border-gray-300 rounded-md p-2">
                         </div>
 
