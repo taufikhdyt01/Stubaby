@@ -15,20 +15,24 @@
 
 <body class="font-poppins my-auto">
     <header class="bg-transparent">
-        <nav class=" px-4 lg:px-6 py-2.5 ">
+        <nav class="px-4 lg:px-6 py-2.5">
             <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
-                <a href="#" class="flex items-center">
+                <a href="{{ route('welcome') }}" class="flex items-center">
                     <img src="{{ asset('/img/logo.svg') }}" class="mr-3 h-10 sm:h-9" alt="Stubaby Logo" />
-                    <span class="self-center text-xl font-semibold text-primary whitespace-nowrap ">StuBaby</span>
+                    <span class="self-center text-xl font-semibold text-primary whitespace-nowrap">StuBaby</span>
                 </a>
                 <div class="flex items-center lg:order-2 space-x-6">
-                    <a href="{{ route('choose') }}" class="text-primary hover:bg-primary font-semibold hover:text-white py-2 px-4 border-2 border-primary hover:border-transparent rounded">Daftar</a>
-                    <a href="{{ route('login') }}" class="text-white bg-primary hover:bg-indigo-500 font-semibold hover:text-white py-2 px-4 border-2 border-primary hover:border-transparent rounded">Masuk</a>
+                    @if(auth()->check())
+                        <a href="{{ route('login') }}" class="text-primary hover:bg-primary font-semibold hover:text-white py-2 px-4 border-2 border-primary hover:border-transparent rounded">Dashboard</a>
+                    @else
+                        <a href="{{ route('choose') }}" class="text-primary hover:bg-primary font-semibold hover:text-white py-2 px-4 border-2 border-primary hover:border-transparent rounded">Daftar</a>
+                        <a href="{{ route('login') }}" class="text-white bg-primary hover:bg-indigo-500 font-semibold hover:text-white py-2 px-4 border-2 border-primary hover:border-transparent rounded">Masuk</a>
+                    @endif
                 </div>
-
             </div>
         </nav>
     </header>
+    
 
     <section>
         <!-- 1 -->
