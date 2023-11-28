@@ -23,8 +23,6 @@
         <!-- tanggal hari ini -->
         <h2 class="text-2xl font-semibold text-gray-700 mb-4">Hari ini, {{ \Carbon\Carbon::now()->translatedFormat('j F Y') }}</h2>
         <hr class="h-px my-2 bg-gray-200 border-0">
-
-        <hr class="h-px my-2 bg-gray-200 border-0">
         <div class="overflow-x-auto">
             <table class="w-full border-collapse border border-gray-300">
                 <thead>

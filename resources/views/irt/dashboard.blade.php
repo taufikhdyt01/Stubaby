@@ -96,18 +96,13 @@
                         <h2 class="lg:text-2xl md:text-xl text-lg font-semibold text-gray-700">
                             Tiket Konsultasi
                         </h2>
-                        <a href="irt/artikel"
+                        <a href="irt/konsultasi"
                             class="text-primary font-semibold hover:underline lg:text-base text-xs md:text-sm">
                             Lihat Semua
                         </a>
                     </div>
                     <hr class="h-px my-2 bg-gray-200 border-0">
                     <div class="overflow-y-auto h-[450px] card-container">
-                        @include('components.tikethome')
-                        @include('components.tikethome')
-                        @include('components.tikethome')
-                        @include('components.tikethome')
-                        @include('components.tikethome')
                         @include('components.tikethome')
                     </div>
                 </div>
