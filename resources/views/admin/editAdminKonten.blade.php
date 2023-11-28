@@ -47,10 +47,6 @@
       <textarea id="isi_artikel" name="isi_artikel" rows="4" class="w-full border border-gray-300 rounded-md p-2"required>{{ $konten->content }}</textarea>
     </div>
 
-    <div class="mt-4">
-      <label for="upload_foto" class="block text-gray-700">Upload Foto:</label>
-      <input type="file" id="upload_foto" name="upload_foto" class="border border-gray-300 rounded-md p-2">
-    </div>
 
     <div class="mt-4">
       <a href="/admin/Admin-Konten"><button type="button" class= "bg-white text-indigo-500 border border-indigo-500 py-2 px-4 rounded-lg mr-5">Batal Perubahan</button></a>

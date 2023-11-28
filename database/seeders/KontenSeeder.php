@@ -22,7 +22,7 @@ class KontenSeeder extends Seeder
                 Faktor-faktor yang dapat menyebabkan stunting antara lain kurangnya asupan gizi, infeksi kronis, sanitasi yang buruk, dan pelayanan kesehatan yang tidak memadai. Stunting dapat memiliki dampak jangka panjang pada kesehatan dan produktivitas anak di masa dewasa.
 
                 Penting untuk memberikan perhatian khusus pada gizi anak sejak dini untuk mencegah stunting. Pemberian makanan bergizi, pemantauan pertumbuhan, dan akses ke layanan kesehatan yang baik dapat membantu mencegah stunting.',
-                'media' => 'img/konten1.jpg', 
+                
                 'user_id' => 2, 
                 'created_at' => now(),
                 'updated_at' => now(),

@@ -16,6 +16,7 @@ return new class extends Migration
         $table->string('judul');
         $table->string('attachment')->nullable();
         $table->text('content');
+        $table->string('image')->nullable();
         $table->binary('media')->nullable();
         $table->unsignedBigInteger('user_id');
         $table->timestamps();

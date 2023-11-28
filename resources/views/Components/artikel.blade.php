@@ -4,7 +4,8 @@
         <!-- link artikel -->
         <a href="/irt/bacaartikel">
             <!-- isi gambar disini -->
-            <img class="rounded-t-lg w-full" src="{{ asset('/img/cthilustrasiartikel.svg') }}" alt="" />
+            
+    <img src="{{asset('storage/'.$article->image)}}" alt="">
         </a>
         <div class="p-5">
             <a href="#">
