@@ -94,7 +94,7 @@
                             @foreach ($tiketKonsultasis as $tiket)
                                 <tr>
                                     <td class="py-2 px-4">{{ $tiket->created_at->format('d F Y, H:i') }}</td>
-                                    <td class="py-2 px-4">{{ $tiket->id }}</td>
+                                    <td class="py-2 px-4">#Tiket{{ $tiket->id }}</td>
                                     <td class="py-2 px-4">{{ $tiket->judul_tiket }}</td>
                                     <td class="py-2 px-4">{{ $tiket->pengirim }}</td>
                                     <td class="py-2 px-4 text-center">

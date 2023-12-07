@@ -62,7 +62,7 @@
     </div>
 
     <div class="mt-4">
-      <button type="submit" @click.prevent="showNotification" class="bg-indigo-500 text-white py-2 px-4 rounded-lg">Simpan data</button>
+      <button type="submit" class="bg-indigo-500 text-white py-2 px-4 rounded-lg">Simpan data</button>
     </div>
   </form>
 </div>

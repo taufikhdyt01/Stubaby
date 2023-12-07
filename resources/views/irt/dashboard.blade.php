@@ -96,7 +96,7 @@
                         <h2 class="lg:text-2xl md:text-xl text-lg font-semibold text-gray-700">
                             Tiket Konsultasi
                         </h2>
-                        <a href="irt/konsultasi"
+                        <a href="/irt/konsultasi"
                             class="text-primary font-semibold hover:underline lg:text-base text-xs md:text-sm">
                             Lihat Semua
                         </a>

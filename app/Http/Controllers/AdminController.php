@@ -88,12 +88,12 @@ class AdminController extends Controller
         $anak = Anak::find($id);
     
         if (!$anak) {
-            return redirect()->route('admin.dashboard')->with('error', 'Anak tidak ditemukan.');
+            return redirect()->route('admin.anak')->with('error', 'Anak tidak ditemukan.');
         }
     
         $anak->delete();
     
-        return redirect()->route('admin.dashboard')->with('success', 'Anak berhasil dihapus.');
+        return redirect()->route('admin.anak')->with('success', 'Anak berhasil dihapus.');
     }
 
 }

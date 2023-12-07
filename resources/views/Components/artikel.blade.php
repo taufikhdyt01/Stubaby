@@ -5,7 +5,7 @@
         <a href="/irt/bacaartikel">
             <!-- isi gambar disini -->
             
-    <img src="{{asset('storage/'.$article->image)}}" alt="">
+    <img class="h-[250px]" src="{{asset('storage/'.$article->image)}}" alt="">
         </a>
         <div class="p-5">
             <a href="#">

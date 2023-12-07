@@ -163,7 +163,7 @@
     </section>
 
     <footer>
-        @include('components.footer')
+        {{-- @include('components.footer') --}}
     </footer>
 </body>
 
