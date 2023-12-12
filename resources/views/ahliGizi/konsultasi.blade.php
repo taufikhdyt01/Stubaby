@@ -37,7 +37,7 @@
                     <div class="bg-white p-4 shadow-md rounded-lg my-5 mx-20">
                         <div class="flex justify-between items-center">
                             <div class="text-xl font-semibold text-gray-700">Filter</div>
-                            <div class="flex items-center space-x-4">
+                            <div class="lg:flex md:flex items-center space-x-4">
                                 <span class="text-gray-500">Tanggal</span>
                                 <div class="relative">
                                     <input id="date-input" type="text"
@@ -61,7 +61,7 @@
                                 </div>
                                 <div class="relative mx-5">
                                     <input name="search" type="text"
-                                        class="py-2 px-4 border border-gray-300 rounded-md w-96" placeholder="Cari">
+                                        class="py-2 px-4 border border-gray-300 rounded-md lg:w-96" placeholder="Cari">
                                     <div class="absolute top-0 right-0 mt-2 mr-3 text-gray-400">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                             stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -77,7 +77,7 @@
                     </div>
                 </form>
                 <!-- Tabel Tiket -->
-                <div class="bg-white p-4 shadow-md rounded-lg my-5 mx-20">
+                <div class="bg-white p-4 shadow-md rounded-lg my-5 mx-20 overflow-x-auto">
                     <h2 class="text-xl font-semibold text-gray-700 mb-4">Daftar Tiket Konsultasi</h2>
                     <table class="w-full border-collapse border border-gray-300">
                         <thead>

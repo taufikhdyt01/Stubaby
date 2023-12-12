@@ -41,7 +41,7 @@
                             Tambah Artikel +
                         </a>
                     </div>
-                    <table class="w-full border-collapse border border-gray-300">
+                    <table class="w-full border-collapse border border-gray-300 overflow-x-auto">
                         <thead>
                             <tr>
                                 <th class="py-2 px-4 bg-gray-200 text-left">Waktu</th>
