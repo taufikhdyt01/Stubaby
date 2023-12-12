@@ -46,7 +46,13 @@ class RegisteredUserController extends Controller
         event(new Registered($user));
 
         Auth::login($user);
+        
+        if ($user->role === 'irt') {
+            return redirect(RouteServiceProvider::HOME_IRT);
+        } elseif ($user->role === 'ahliGizi') {
+            return redirect(RouteServiceProvider::HOME_AHLIGIZI);
+        }
 
-        return redirect(RouteServiceProvider::HOME);
+        
     }
 }
